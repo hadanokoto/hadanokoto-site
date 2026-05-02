@@ -4,8 +4,8 @@
 
 /* AOS */
 AOS.init({
-  duration: 800,
-  offset: 80,
+  duration: 1200,
+  offset: 30,
   once: true,
   easing: 'ease',
 });
