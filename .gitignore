@@ -1,0 +1,9 @@
+# Local server script (not needed for deployment)
+server.ps1
+
+# Spec/planning docs
+hadanokoto_site_spec.md
+
+# OS files
+.DS_Store
+Thumbs.db
