@@ -7,8 +7,8 @@
    ============================================================ */
 :root {
   --color-bg:      #ffffff;
-  --color-main:    #2c2c2a;
-  --color-sub:     #888780;
+  --color-main:    #1a1a1a;
+  --color-sub:     #555555;
   --color-border:  rgba(0, 0, 0, 0.12);
   --color-white:   #ffffff;
   --color-dark:    #1e1c18;
@@ -276,7 +276,7 @@ ul { list-style: none; }
 .header__logo:hover { opacity: 0.7; }
 
 .header__logo-img {
-  height: 70px;
+  height: 80px;
   width: auto;
   display: block;
   background: none;
@@ -536,13 +536,23 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   HERO (TOP PAGE)
+   HERO (TOP PAGE) — ORIGAMI style
    ============================================================ */
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 600px;
+  height: 72vh;
+  min-height: 440px;
   overflow: hidden;
+  margin-inline: 16px;
+  clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
+}
+
+@media (min-width: 769px) {
+  .hero {
+    margin-inline: 32px;
+    height: 82vh;
+    clip-path: polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%);
+  }
 }
 
 .hero__swiper,
@@ -573,33 +583,39 @@ ul { list-style: none; }
 
 .hero__content {
   position: absolute;
-  inset: 0;
+  bottom: 44px;
+  right: 40px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-end;
+  text-align: right;
   z-index: 10;
-  padding-top: var(--header-h);
-  gap: 16px;
+  gap: 10px;
 }
 
 .hero__catch-en {
   font-family: var(--font-en);
-  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-size: clamp(0.55rem, 1vw, 0.68rem);
   font-weight: 300;
-  letter-spacing: 0.38em;
-  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.7);
   text-transform: uppercase;
 }
 
 .hero__title {
-  font-family: var(--font-ja);
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-family: var(--font-en);
+  font-size: clamp(1.5rem, 4vw, 2.6rem);
   font-weight: 300;
-  line-height: 1.75;
-  letter-spacing: 0.12em;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
   color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .hero__content {
+    bottom: 28px;
+    right: 24px;
+  }
 }
 
 .hero__pagination {
@@ -710,17 +726,19 @@ ul { list-style: none; }
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  border: 0.5px solid #cccccc;
-  clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
-  transition: opacity 0.4s ease;
+  clip-path: polygon(0 0, 88% 0, 100% 12%, 100% 100%, 12% 100%, 0 88%);
+  filter: drop-shadow(0 0 0.5px rgba(0,0,0,0.18));
+  transition: opacity 0.4s ease, filter 0.4s ease;
 }
 
-/* 奇数カード：薄い水色 */
-.idx-menu .idx-menu-card:nth-child(odd) { background-color: #e8f0f5; }
-/* 偶数カード：白 */
+/* 白に統一（交互色なし）*/
+.idx-menu .idx-menu-card:nth-child(odd)  { background-color: #ffffff; }
 .idx-menu .idx-menu-card:nth-child(even) { background-color: #ffffff; }
 
-.idx-menu-card:hover { opacity: 0.85; }
+.idx-menu-card:hover {
+  opacity: 0.85;
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.22));
+}
 
 .idx-menu-card__img {
   aspect-ratio: 3 / 2;
@@ -786,7 +804,7 @@ ul { list-style: none; }
    INDEX — VOICE SECTION
    ============================================================ */
 .idx-voice {
-  padding-block: var(--section-gap-pc);
+  padding-block: 60px;
 }
 
 .idx-voice__list {
@@ -798,9 +816,9 @@ ul { list-style: none; }
 .idx-voice-item {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 24px 48px;
+  gap: 16px 36px;
   align-items: start;
-  padding-block: 36px;
+  padding-block: 22px;
   border-top: var(--border);
 }
 
@@ -932,11 +950,12 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   RESERVE / CTA SECTION
+   RESERVE / CTA SECTION — white bg (ORIGAMI style)
    ============================================================ */
 .reserve {
-  background-color: var(--color-main);
-  padding-block: 100px;
+  background-color: #ffffff;
+  padding-block: 60px;
+  border-top: var(--border);
 }
 
 .reserve__inner {
@@ -945,41 +964,41 @@ ul { list-style: none; }
 
 .reserve__catch-en {
   font-family: var(--font-en);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   letter-spacing: 0.32em;
-  color: rgba(255,255,255,0.35);
+  color: var(--color-sub);
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .reserve__title {
   font-family: var(--font-ja);
-  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
   font-weight: 300;
   letter-spacing: 0.12em;
-  color: var(--color-white);
-  margin-bottom: 16px;
+  color: var(--color-main);
+  margin-bottom: 14px;
 }
 
 .reserve__sub {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 36px;
+  color: var(--color-sub);
+  margin-bottom: 32px;
   line-height: 1.9;
 }
 
 .reserve__tel {
   display: block;
   font-family: var(--font-en);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 300;
   letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.6);
-  margin-top: 20px;
-  transition: color 0.25s, opacity 0.25s;
+  color: var(--color-main);
+  margin-top: 18px;
+  transition: opacity 0.25s;
 }
-.reserve__tel:hover { color: var(--color-white); opacity: 1; }
+.reserve__tel:hover { opacity: 0.55; }
 
 /* ============================================================
    FOOTER — 3-column ORIGAMI layout
@@ -1036,23 +1055,53 @@ ul { list-style: none; }
   transition: opacity 0.25s;
 }
 
-/* SNS list */
+/* SNS text list */
 .footer__sns-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 20px;
+  gap: 8px 16px;
   list-style: none;
+  margin-bottom: 20px;
 }
 
 .footer__sns-link {
   font-family: var(--font-en);
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   letter-spacing: 0.18em;
   color: var(--color-sub);
   transition: color 0.25s, opacity 0.25s;
 }
 
 .footer__sns-link:hover { color: var(--color-main); opacity: 1; }
+
+/* SNS icon buttons */
+.footer__sns-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.footer__sns-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0.5px solid rgba(0,0,0,0.2);
+  color: var(--color-main);
+  font-size: 15px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+  flex-shrink: 0;
+}
+
+.footer__sns-icon:hover { opacity: 0.45; }
+
+.footer__sns-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
 
 /* OPEN TIMES column nav */
 .footer__nav {
@@ -1999,8 +2048,11 @@ ul { list-style: none; }
   .idx-access__map .placeholder,
   .idx-access__map iframe { height: 280px; }
 
+  /* Voice */
+  .idx-voice { padding-block: 40px; }
+
   /* Reserve */
-  .reserve { padding-block: 72px; }
+  .reserve { padding-block: 44px; }
   .reserve__sub br { display: none; }
 
   /* Footer */
@@ -2120,6 +2172,9 @@ ul { list-style: none; }
   .products-grid { grid-template-columns: 1fr; }
   .header__logo-img { height: 55px; }
   .idx-menu__grid { grid-template-columns: 1fr; }
+
+  /* Logo */
+  .header__logo-img { height: 65px; }
 
   /* Popup nav mobile adjustments */
   .popnav__inner { gap: 32px; padding: 60px 24px 48px; }
