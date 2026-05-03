@@ -10,13 +10,13 @@ AOS.init({
   easing: 'ease',
 });
 
-/* Hero Swiper */
+/* ---- HERO SWIPER ---- */
 if (document.querySelector('.hero__swiper')) {
   new Swiper('.hero__swiper', {
     loop: true,
-    speed: 2000,
+    speed: 2200,
     autoplay: {
-      delay: 5000,
+      delay: 5500,
       disableOnInteraction: false,
     },
     effect: 'fade',
@@ -28,7 +28,7 @@ if (document.querySelector('.hero__swiper')) {
   });
 }
 
-/* Header scroll state */
+/* ---- HEADER SCROLL STATE ---- */
 const header = document.getElementById('header');
 
 function updateHeader() {
@@ -50,56 +50,49 @@ if (header) {
   updateHeader();
 }
 
-/* Hamburger */
-const hamburger = document.getElementById('hamburger');
-const nav       = document.getElementById('nav');
+/* ---- POPUP NAV (ORIGAMI style — full screen overlay) ---- */
+var hamburger   = document.getElementById('hamburger');
+var popnav      = document.getElementById('popnav');
+var popnavClose = document.getElementById('popnav-close');
 
-if (hamburger && nav) {
+if (hamburger && popnav) {
 
-  /* オーバーレイ生成 */
-  const overlay = document.createElement('div');
-  overlay.className = 'nav-overlay';
-  document.body.appendChild(overlay);
-
-  /* ×閉じるボタン生成 */
-  const closeBtn = document.createElement('button');
-  closeBtn.className = 'nav-close';
-  closeBtn.setAttribute('aria-label', 'メニューを閉じる');
-  closeBtn.innerHTML = '&times;';
-  nav.prepend(closeBtn);
-
-  /* SNSリンク生成（メニュー下部）*/
-  const navSns = document.createElement('div');
-  navSns.className = 'nav-sns';
-  navSns.innerHTML =
-    '<a href="https://www.instagram.com/hadanokoto/" class="nav-sns__link" target="_blank" rel="noopener">Instagram</a>' +
-    '<a href="https://lin.ee/RhbFOYM" class="nav-sns__link" target="_blank" rel="noopener">LINE</a>';
-  nav.appendChild(navSns);
-
-  function openNav() {
-    nav.classList.add('is-open');
-    overlay.classList.add('is-open');
+  function openPopNav() {
+    popnav.classList.add('is-open');
+    popnav.setAttribute('aria-hidden', 'false');
     hamburger.classList.add('is-open');
     hamburger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeNav() {
-    nav.classList.remove('is-open');
-    overlay.classList.remove('is-open');
+  function closePopNav() {
+    popnav.classList.remove('is-open');
+    popnav.setAttribute('aria-hidden', 'true');
     hamburger.classList.remove('is-open');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
   }
 
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.contains('is-open') ? closeNav() : openNav();
+  hamburger.addEventListener('click', openPopNav);
+
+  if (popnavClose) {
+    popnavClose.addEventListener('click', closePopNav);
+  }
+
+  /* Close when a nav link is clicked */
+  popnav.querySelectorAll('.popnav__link').forEach(function(link) {
+    link.addEventListener('click', closePopNav);
   });
 
-  closeBtn.addEventListener('click', closeNav);
-  overlay.addEventListener('click', closeNav);
+  /* Close when clicking the backdrop (outside inner box) */
+  popnav.addEventListener('click', function(e) {
+    if (e.target === popnav) closePopNav();
+  });
 
-  nav.querySelectorAll('.header__nav-link').forEach(link => {
-    link.addEventListener('click', closeNav);
+  /* Close on ESC key */
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && popnav.classList.contains('is-open')) {
+      closePopNav();
+    }
   });
 }

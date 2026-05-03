@@ -36,6 +36,36 @@
     </div>
   </header>
 
+  <!-- POPUP NAV -->
+  <div class="popnav" id="popnav" aria-hidden="true">
+    <button class="popnav__close" id="popnav-close" aria-label="メニューを閉じる">
+      <span></span><span></span>
+    </button>
+    <div class="popnav__inner">
+      <a href="index.html" class="popnav__logo">
+        <img src="images/hadanoko-logo-png.png" alt="ハダノコトサロン">
+      </a>
+      <nav class="popnav__nav">
+        <ul class="popnav__list">
+          <li><a href="index.html"   class="popnav__link"><span class="popnav__cover"></span><span class="popnav__text">HOME</span></a></li>
+          <li><a href="concept.html" class="popnav__link"><span class="popnav__cover"></span><span class="popnav__text">CONCEPT</span></a></li>
+          <li><a href="menu.html"    class="popnav__link"><span class="popnav__cover"></span><span class="popnav__text">MENU</span></a></li>
+          <li><a href="voice.html"   class="popnav__link"><span class="popnav__cover"></span><span class="popnav__text">VOICE</span></a></li>
+          <li><a href="access.html"  class="popnav__link"><span class="popnav__cover"></span><span class="popnav__text">ACCESS</span></a></li>
+          <li><a href="https://lin.ee/RhbFOYM" class="popnav__link" target="_blank" rel="noopener"><span class="popnav__cover"></span><span class="popnav__text">RESERVE</span></a></li>
+        </ul>
+      </nav>
+      <div class="popnav__bottom">
+        <div class="popnav__sns">
+          <a href="https://www.instagram.com/hadanokoto/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINE</a>
+          <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
+        </div>
+        <a href="https://lin.ee/RhbFOYM" class="popnav__reserve-btn" target="_blank" rel="noopener">LINE で予約する</a>
+      </div>
+    </div>
+  </div>
+
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero__img">
@@ -215,23 +245,37 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
-        <div class="footer__logo">
-          <a href="index.html">
-            <span class="footer__logo-en">HADANOKOTO</span>
-            <span class="footer__logo-ja">ハダノコトサロン</span>
-          </a>
-        </div>
-        <div class="footer__info">
-          <p class="footer__address">〒839-0841 福岡県久留米市御井旗崎5-9-5 プレスト御井駅前104</p>
-          <p class="footer__hours">10:00〜18:00 ／ 水曜定休（不定休あり）／ 完全予約制</p>
-        </div>
-        <div class="footer__sns">
+
+        <!-- INFO -->
+        <div class="footer__col">
+          <p class="footer__col-title">INFO</p>
+          <dl class="footer__dl">
+            <dt>SALON</dt>
+            <dd>ハダノコトサロン</dd>
+            <dt>ADDRESS</dt>
+            <dd>〒839-0841<br>福岡県久留米市御井旗崎5-9-5<br>プレスト御井駅前104</dd>
+            <dt>TEL</dt>
+            <dd><a href="tel:0942-25-8946">0942-25-8946</a></dd>
+          </dl>
           <ul class="footer__sns-list">
             <li><a href="https://www.instagram.com/hadanokoto/" class="footer__sns-link" target="_blank" rel="noopener">Instagram</a></li>
             <li><a href="https://note.com/hadanokoto"           class="footer__sns-link" target="_blank" rel="noopener">note</a></li>
             <li><a href="https://lin.ee/RhbFOYM"                class="footer__sns-link" target="_blank" rel="noopener">LINE</a></li>
             <li><a href="https://lit.link/hadanokoto"           class="footer__sns-link" target="_blank" rel="noopener">lit.link</a></li>
           </ul>
+        </div>
+
+        <!-- OPEN TIMES -->
+        <div class="footer__col">
+          <p class="footer__col-title">OPEN TIMES</p>
+          <dl class="footer__dl">
+            <dt>OPEN</dt>
+            <dd>10:00〜18:00</dd>
+            <dt>CLOSE</dt>
+            <dd>水曜定休（不定休あり）</dd>
+            <dt>SYSTEM</dt>
+            <dd>完全予約制・完全個室</dd>
+          </dl>
           <nav class="footer__nav">
             <a href="index.html">HOME</a>
             <a href="concept.html">CONCEPT</a>
@@ -240,6 +284,15 @@
             <a href="access.html">ACCESS</a>
           </nav>
         </div>
+
+        <!-- RESERVE -->
+        <div class="footer__col">
+          <p class="footer__col-title">RESERVE</p>
+          <p class="footer__reserve-text">完全予約制・完全個室のプライベートサロンです。<br>初めての方もお気軽にご相談ください。</p>
+          <a href="https://lin.ee/RhbFOYM" class="footer__reserve-btn" target="_blank" rel="noopener">LINE で予約する</a>
+          <a href="tel:0942-25-8946" class="footer__reserve-tel">0942-25-8946</a>
+        </div>
+
       </div>
       <p class="footer__copy">&copy; 2026 HADANOKOTO SALON All Rights Reserved.</p>
     </div>
