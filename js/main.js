@@ -55,19 +55,51 @@ const hamburger = document.getElementById('hamburger');
 const nav       = document.getElementById('nav');
 
 if (hamburger && nav) {
+
+  /* オーバーレイ生成 */
+  const overlay = document.createElement('div');
+  overlay.className = 'nav-overlay';
+  document.body.appendChild(overlay);
+
+  /* ×閉じるボタン生成 */
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'nav-close';
+  closeBtn.setAttribute('aria-label', 'メニューを閉じる');
+  closeBtn.innerHTML = '&times;';
+  nav.prepend(closeBtn);
+
+  /* SNSリンク生成（メニュー下部）*/
+  const navSns = document.createElement('div');
+  navSns.className = 'nav-sns';
+  navSns.innerHTML =
+    '<a href="https://www.instagram.com/hadanokoto/" class="nav-sns__link" target="_blank" rel="noopener">Instagram</a>' +
+    '<a href="https://lin.ee/RhbFOYM" class="nav-sns__link" target="_blank" rel="noopener">LINE</a>';
+  nav.appendChild(navSns);
+
+  function openNav() {
+    nav.classList.add('is-open');
+    overlay.classList.add('is-open');
+    hamburger.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    nav.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
   hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.classList.toggle('is-open');
-    nav.classList.toggle('is-open', isOpen);
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    hamburger.classList.contains('is-open') ? closeNav() : openNav();
   });
 
+  closeBtn.addEventListener('click', closeNav);
+  overlay.addEventListener('click', closeNav);
+
   nav.querySelectorAll('.header__nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('is-open');
-      nav.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeNav);
   });
 }
