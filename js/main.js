@@ -4,19 +4,19 @@
 
 /* AOS */
 AOS.init({
-  duration: 1200,
-  offset: 30,
+  duration: 1000,
+  offset: 60,
   once: true,
-  easing: 'ease',
+  easing: 'ease-out',
 });
 
 /* ---- HERO SWIPER ---- */
 if (document.querySelector('.hero__swiper')) {
   new Swiper('.hero__swiper', {
     loop: true,
-    speed: 2200,
+    speed: 1800,
     autoplay: {
-      delay: 5500,
+      delay: 6000,
       disableOnInteraction: false,
     },
     effect: 'fade',
@@ -33,7 +33,7 @@ const header = document.getElementById('header');
 
 function updateHeader() {
   if (!header) return;
-  if (window.scrollY > 40) {
+  if (window.scrollY > 60) {
     header.classList.add('is-scrolled');
   } else {
     if (!header.dataset.alwaysScrolled) {
