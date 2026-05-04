@@ -198,16 +198,17 @@ ul { list-style: none; }
 .btn {
   display: inline-block;
   font-family: var(--font-en);
-  font-size: 0.72rem;
+  font-size: 12px;
   font-weight: 300;
   letter-spacing: 0.2em;
-  padding: 13px 38px;
+  padding: 12px 40px;
   border: 0.5px solid currentColor;
   transition: background-color 0.3s ease,
               color 0.3s ease,
               opacity 0.3s ease;
   cursor: pointer;
   text-align: center;
+  background: transparent;
 }
 
 .btn--dark {
@@ -246,6 +247,9 @@ ul { list-style: none; }
   width: 100%;
   height: var(--header-h);
   z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.97);
+  border-bottom: var(--border);
+  backdrop-filter: blur(8px);
   transition: background-color 0.5s ease,
               border-bottom 0.5s ease,
               backdrop-filter 0.5s ease;
@@ -262,22 +266,36 @@ ul { list-style: none; }
   padding-inline: var(--container-pad);
   margin-inline: auto;
   height: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Logo — centered via grid-column 2 */
+/* Logo — left-aligned */
 .header__logo {
-  grid-column: 2;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 3px;
+  align-items: flex-start;
   transition: opacity 0.4s ease;
 }
 .header__logo:hover { opacity: 0.7; }
 
+/* Salon name above logo */
+.header__salon-name {
+  font-family: var(--font-en);
+  font-size: 0.42rem;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.7);
+  line-height: 1;
+  text-transform: uppercase;
+  transition: color 0.5s ease;
+}
+.header.is-scrolled .header__salon-name { color: var(--color-sub); }
+
 .header__logo-img {
-  height: 80px;
+  height: 52px;
   width: auto;
   display: block;
   background: none;
@@ -341,10 +359,8 @@ ul { list-style: none; }
   border-color: var(--color-main);
 }
 
-/* Hamburger — always visible, grid-column 3 right-aligned */
+/* Hamburger — right side of flex header */
 .header__hamburger {
-  grid-column: 3;
-  justify-self: end;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -357,6 +373,7 @@ ul { list-style: none; }
   padding: 6px;
   position: relative;
   z-index: 2100;
+  flex-shrink: 0;
 }
 
 .header__hamburger span {
@@ -580,18 +597,19 @@ ul { list-style: none; }
    ============================================================ */
 .hero {
   position: relative;
-  height: 78vh;
-  min-height: 460px;
+  margin-top: var(--header-h);
+  height: 60vh;
+  min-height: 340px;
+  max-width: 95%;
+  margin-inline: auto;
   overflow: hidden;
-  margin-inline: 16px;
-  clip-path: polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%);
+  clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
 }
 
 @media (min-width: 769px) {
   .hero {
-    margin-inline: 32px;
-    height: 82vh;
-    clip-path: polygon(5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%, 0 5%);
+    height: 70vh;
+    min-height: 480px;
   }
 }
 
@@ -635,16 +653,16 @@ ul { list-style: none; }
 
 .hero__catch-en {
   font-family: var(--font-en);
-  font-size: clamp(0.55rem, 1vw, 0.68rem);
+  font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.75);
   text-transform: uppercase;
 }
 
 .hero__title {
   font-family: var(--font-en);
-  font-size: clamp(1.5rem, 4vw, 2.6rem);
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: 0.2em;
@@ -653,9 +671,11 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .hero__content {
-    bottom: 52px;
-    right: 20px;
+    bottom: 44px;
+    right: 18px;
   }
+  .hero__title  { font-size: 18px; }
+  .hero__catch-en { font-size: 10px; }
 }
 
 .hero__pagination {
@@ -773,23 +793,32 @@ ul { list-style: none; }
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  clip-path: polygon(0 0, 88% 0, 100% 12%, 100% 100%, 12% 100%, 0 88%);
-  filter: drop-shadow(0 0 0.5px rgba(0,0,0,0.18));
-  transition: opacity 0.4s ease, filter 0.4s ease;
+  transition: opacity 0.4s ease;
+  border: var(--border);
 }
 
-/* 白に統一（交互色なし）*/
-.idx-menu .idx-menu-card:nth-child(odd)  { background-color: #ffffff; }
-.idx-menu .idx-menu-card:nth-child(even) { background-color: #ffffff; }
+.idx-menu-card:hover { opacity: 0.82; }
 
-.idx-menu-card:hover {
-  opacity: 0.85;
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.22));
-}
-
+/* カード画像のみに角落とし（ORIGAMI風・左上と右下をカット） */
 .idx-menu-card__img {
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  position: relative;
+  clip-path: polygon(8% 0, 100% 0, 100% 92%, 92% 100%, 0 100%, 0 8%);
+}
+
+/* 縦線装飾（画像左側・ORIGAMI風） */
+.idx-menu-card__img::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 14%;
+  height: 60%;
+  width: 0.5px;
+  background-color: rgba(255,255,255,0.38);
+  box-shadow: 8px 0 0 rgba(255,255,255,0.26), 16px 0 0 rgba(255,255,255,0.16);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .idx-menu-card__img .placeholder { height: 100%; }
@@ -2253,4 +2282,52 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .idx-products .idx-menu__grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   VOICE SECTION — 非表示（将来追加可）
+   ============================================================ */
+.idx-voice { display: none !important; }
+
+/* popnavのVOICEリンクを非表示 */
+.popnav__list li:has(> a[href="voice.html"]) { display: none; }
+
+/* ============================================================
+   FOOTER — 簡略版（ロゴ・SNS・コピーライトのみ）
+   ============================================================ */
+.footer {
+  padding-block: 56px 32px;
+  border-top: var(--border);
+}
+
+.footer__simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.footer__logo-link {
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+.footer__logo-link:hover { opacity: 0.7; }
+
+.footer__logo-link img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
+/* footerのSNSアイコンを中央揃えに（簡略版） */
+.footer__simple .footer__sns-icons {
+  justify-content: center;
+}
+
+/* ============================================================
+   HERO — SPでのscroll indicator位置
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero__scroll { display: none; }
 }
