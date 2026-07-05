@@ -1,20 +1,19 @@
 /* ============================================
-   ハダノコトサロン 公式サイト v2
+   ハダノコトサロン 公式サイト v4
    和モダン・静かで上質
-   生成り × 墨色 × 深緑(少量)
-   参考:英語ラベル+日本語添え書きの見出し作法・
-   セクション帯背景・和紙質感・スクロール連動フェード
+   生成り × 墨色 × 金茶(くすんだゴールド)
+   参考:余白に浮かぶ写真カード・中央揃え見出し+短い罫線・
+   縦書きcontent番号・詩組み・写真カード・枠線ボタン
    ============================================ */
 
 :root {
   --bg: #F7F4EE;
-  --bg-white: #FFFFFF;
-  --bg-green: #EEF1EC;
-  --bg-soft: #F1EDE3;
   --ink: #2B2B2B;
   --ink-soft: #55524C;
-  --green: #4A5D4E;
-  --green-dark: #3D4E41;
+  --accent: #A6803C;
+  --accent-dark: #8C6B30;
+  --line-green: #2E7D4F;      /* LINE関連ボタンのみ(ブランド色) */
+  --line-green-dark: #256B42;
   --line: #DCD6C8;
   --serif: "Shippori Mincho", "Noto Serif JP", serif;
   --sans: "Noto Sans JP", sans-serif;
@@ -38,7 +37,7 @@ body {
   font-weight: 400;
   font-size: 15.5px;
   line-height: 1.9;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -60,7 +59,7 @@ img {
 }
 
 a {
-  color: var(--green);
+  color: var(--accent-dark);
   text-decoration: none;
 }
 
@@ -99,9 +98,7 @@ a {
 
 /* 白背景のJPGロゴを生成り背景に馴染ませる */
 .brand img,
-.hero-logo,
-.footer-logo,
-.ph img {
+.footer-logo {
   mix-blend-mode: multiply;
 }
 
@@ -166,11 +163,11 @@ a {
 
 .site-nav a:hover .en,
 .site-nav a[aria-current="page"] .en {
-  color: var(--green);
+  color: var(--accent-dark);
 }
 
 .site-nav a[aria-current="page"] .ja {
-  color: var(--green);
+  color: var(--accent-dark);
 }
 
 .nav-copy {
@@ -221,26 +218,14 @@ a {
   }
 }
 
-/* ---------- 帯(セクション背景) ---------- */
+/* ---------- セクション(背景は全ページ均一の生成り。区切りは余白で) ---------- */
 
 .band {
-  padding: 88px 24px;
+  padding: 96px 24px;
 }
 
 .band--head {
   padding: 72px 24px 56px;
-}
-
-.band--white {
-  background: var(--bg-white);
-}
-
-.band--green {
-  background: var(--bg-green);
-}
-
-.band--cta {
-  padding: 80px 24px 96px;
 }
 
 .inner {
@@ -248,48 +233,73 @@ a {
   margin: 0 auto;
 }
 
-/* ---------- 見出しシステム(英語+日本語添え書き) ---------- */
+.inner--wide {
+  max-width: 960px;
+}
+
+/* ---------- 見出しシステム(中央揃え+金茶の短い罫線+縦書き番号) ---------- */
 
 h1, h2, h3 {
   font-family: var(--serif);
   font-weight: 500;
-  line-height: 1.7;
-  letter-spacing: 0.08em;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
 }
 
 .sec-head {
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 52px;
 }
 
+/* content番号は縦書きでセクション左肩に */
 .sec-num {
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  writing-mode: vertical-rl;
   font-family: var(--en-serif);
-  font-size: 0.74rem;
-  letter-spacing: 0.32em;
-  color: var(--green);
-  margin-bottom: 14px;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--accent);
 }
 
 .sec-head .en {
   font-family: var(--en-serif);
   font-weight: 500;
-  font-size: clamp(1.9rem, 6vw, 2.4rem);
-  letter-spacing: 0.22em;
-  line-height: 1.2;
+  font-size: clamp(2.4rem, 8vw, 3.4rem);
+  letter-spacing: 0.12em;
+  line-height: 1.15;
   text-transform: uppercase;
+  color: var(--accent);
 }
 
 .sec-head .ja {
-  font-size: 0.82rem;
-  letter-spacing: 0.16em;
-  color: var(--green-dark);
-  margin-top: 10px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--ink);
+  margin-top: 12px;
+}
+
+/* 見出し直下の短い水平線(金茶・幅24px) */
+.sec-head::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  margin-top: 22px;
 }
 
 h3 {
-  font-size: 1.08rem;
-  color: var(--green-dark);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.12em;
   margin-bottom: 14px;
 }
 
@@ -298,96 +308,147 @@ p + p {
 }
 
 .note {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   color: var(--ink-soft);
 }
 
 .catch {
   font-family: var(--serif);
   font-size: clamp(1.25rem, 4.5vw, 1.5rem);
-  letter-spacing: 0.1em;
-  line-height: 2;
+  letter-spacing: 0.25em;
+  line-height: 2.1;
+  text-align: center;
   margin-bottom: 28px;
 }
 
-/* ---------- ファーストビュー ---------- */
+/* 詩組み(短い理念文。中央揃え・意味の切れ目で改行) */
+.poem {
+  text-align: center;
+  line-height: 2.3;
+}
+
+.poem p + p {
+  margin-top: 1.8em;
+}
+
+/* ---------- ファーストビュー(余白に浮かぶ写真カード) ---------- */
 
 .hero {
-  min-height: calc(100svh - 62px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 56px 24px 120px;
+  padding: 44px 24px 64px;
+}
+
+.hero-card {
   position: relative;
+  width: min(720px, 100%);
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.hero-photo {
+  width: 100%;
+  height: min(80vh, 820px);
+  min-height: 520px;
+  object-fit: cover;
+}
+
+/* 写真上部に生成りの余白をつくり、ロゴを置く */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 46%;
+  background: linear-gradient(to bottom,
+    rgba(247, 244, 238, 0.97) 0%,
+    rgba(247, 244, 238, 0.88) 42%,
+    rgba(247, 244, 238, 0) 100%);
+  pointer-events: none;
+}
+
+/* 下部は文字の可読性用にごく薄く墨を敷く */
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 34%;
+  background: linear-gradient(to top, rgba(30, 28, 24, 0.42), rgba(30, 28, 24, 0));
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 34px 24px 30px;
 }
 
 .hero-logo {
-  width: min(260px, 62%);
-  margin: 0 auto 52px;
+  width: min(230px, 56%);
+  mix-blend-mode: multiply;
 }
 
 .hero-copy {
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 5.5vw, 2rem);
-  letter-spacing: 0.12em;
-  line-height: 2;
-  margin-bottom: 34px;
+  font-size: clamp(1.35rem, 5vw, 1.75rem);
+  letter-spacing: 0.3em;
+  line-height: 2.1;
+  color: #fff;
+  text-shadow: 0 1px 18px rgba(20, 18, 14, 0.45);
+  margin: auto 0;
+  padding-top: 8vh;
 }
 
 .hero-address {
   font-family: var(--en-serif);
-  font-size: 0.74rem;
-  letter-spacing: 0.26em;
-  color: var(--ink-soft);
-  text-transform: uppercase;
-}
-
-/* scroll インジケーター */
-
-.scroll-cue {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.scroll-cue span {
-  font-family: var(--en-serif);
   font-size: 0.72rem;
-  letter-spacing: 0.32em;
-  color: var(--ink-soft);
+  letter-spacing: 0.2em;
+  line-height: 2;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 1px 10px rgba(20, 18, 14, 0.4);
 }
 
-.scroll-cue i {
-  display: block;
-  width: 1px;
-  height: 54px;
-  background: var(--line);
-  overflow: hidden;
-  position: relative;
-}
-
-.scroll-cue i::after {
-  content: "";
+/* 円形の下向き矢印(金茶の細線・ゆっくり上下) */
+.hero-arrow {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--green);
-  animation: scrollcue 2.4s ease-in-out infinite;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(247, 244, 238, 0.28);
+  animation: float 2.8s ease-in-out infinite;
 }
 
-@keyframes scrollcue {
-  0%   { transform: translateY(-100%); }
-  55%  { transform: translateY(100%); }
-  100% { transform: translateY(100%); }
+.hero-arrow svg {
+  width: 14px;
+  height: 16px;
+  stroke: var(--accent);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(7px); }
+}
+
+.hero-caption {
+  width: min(720px, 100%);
+  margin-top: 14px;
+  font-family: var(--en-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  color: var(--accent);
 }
 
 /* ---------- スクロール連動フェードイン ---------- */
@@ -409,7 +470,7 @@ p + p {
     transform: none;
     transition: none;
   }
-  .scroll-cue i::after {
+  .hero-arrow {
     animation: none;
   }
   html {
@@ -417,201 +478,185 @@ p + p {
   }
 }
 
-/* ---------- ボタン(ピル型・色が満ちるhover) ---------- */
+/* ---------- 写真 ---------- */
 
-.btn {
-  display: inline-block;
-  padding: 15px 40px;
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  border: 1px solid var(--green);
-  border-radius: 999px;
-  background-repeat: no-repeat;
-  background-size: 0% 100%;
-  background-position: left center;
-  transition: background-size 0.4s ease, color 0.4s ease, border-color 0.4s ease;
-}
-
-.btn-primary {
-  background-color: var(--green);
-  background-image: linear-gradient(var(--green-dark), var(--green-dark));
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background-size: 100% 100%;
-  border-color: var(--green-dark);
-}
-
-.btn-ghost {
-  color: var(--green);
-  background-color: transparent;
-  background-image: linear-gradient(var(--green), var(--green));
-}
-
-.btn-ghost:hover {
-  background-size: 100% 100%;
-  color: #fff;
-}
-
-.btn-large {
-  display: block;
-  text-align: center;
-  padding: 18px 20px;
-  font-size: 1rem;
-}
-
-/* ---------- カード(3つの柱) ---------- */
-
-.pillars {
-  display: grid;
-  gap: 26px;
-}
-
-.pillar {
-  background: var(--bg-white);
-  border: 1px solid #E7E3D8;
-  padding: 36px 32px;
-}
-
-.pillar h3 {
-  margin-bottom: 12px;
-}
-
-.pillar .more {
-  display: inline-block;
-  margin-top: 16px;
-  font-family: var(--en-serif);
-  font-size: 0.86rem;
-  letter-spacing: 0.14em;
-  border-bottom: 1px solid var(--green);
-  padding-bottom: 2px;
-}
-
-/* ---------- 写真プレースホルダー ---------- */
-
-.ph {
-  background: var(--bg-green);
-  border: 1px solid #E2E0D4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  aspect-ratio: 3 / 2;
+.photo {
+  border-radius: 16px;
+  overflow: hidden;
   margin: 26px 0;
 }
 
-.ph img {
-  width: 58px;
-  opacity: 0.4;
+.photo img {
+  width: 100%;
+  object-fit: cover;
 }
 
-.ph span {
-  font-family: var(--en-serif);
-  font-size: 0.74rem;
-  letter-spacing: 0.24em;
-  color: #8B9388;
+.photo--wide img {
+  aspect-ratio: 16 / 9;
 }
 
-.ph-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.ph-grid .ph {
-  margin: 0;
-}
-
-@media (max-width: 560px) {
-  .ph-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ---------- 写真ギャラリー(モザイク) ---------- */
+/* ギャラリー(大小のリズム) */
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
+  gap: 18px;
 }
 
-.gallery .ph {
+.gallery .photo {
   margin: 0;
 }
 
-.gallery .g1 {
-  grid-column: span 4;
+.gallery .photo:first-child img {
+  aspect-ratio: 16 / 10;
+}
+
+.gallery .photo:last-child {
+  width: 68%;
+  margin-left: auto;
+}
+
+.gallery .photo:last-child img {
   aspect-ratio: 4 / 3;
 }
 
-.gallery .g2 {
-  grid-column: span 2;
-  aspect-ratio: auto;
-}
-
-.gallery .g3 {
-  grid-column: span 2;
-  aspect-ratio: 1 / 1;
-}
-
-.gallery .g4 {
-  grid-column: span 4;
-  aspect-ratio: auto;
-}
-
 @media (max-width: 560px) {
-  .gallery {
-    gap: 10px;
-  }
-  .gallery .ph img {
-    width: 40px;
-  }
-  .gallery .ph span {
-    font-size: 0.58rem;
+  .gallery .photo:last-child {
+    width: 82%;
   }
 }
 
-/* ---------- 料金表 ---------- */
+/* ---------- 3つの柱(写真カード) ---------- */
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.pillar-card {
+  position: relative;
+  display: block;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  color: #fff;
+}
+
+.pillar-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.pillar-card:hover img {
+  transform: scale(1.04);
+}
+
+/* 半透明の暗めグラデーション */
+.pillar-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+    rgba(25, 23, 19, 0.68) 0%,
+    rgba(25, 23, 19, 0.28) 45%,
+    rgba(25, 23, 19, 0.06) 100%);
+}
+
+.pillar-num {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 1;
+  writing-mode: vertical-rl;
+  font-family: var(--en-serif);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.pillar-body {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: 0 20px 22px;
+  text-align: center;
+}
+
+.pillar-title {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.pillar-sub {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 760px) {
+  .pillars {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+  .pillar-card {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+/* ---------- 料金表(メニュー名=濃く太く/価格=大きく/説明=薄く小さく) ---------- */
 
 .price-table {
   width: 100%;
   border-collapse: collapse;
   margin: 18px 0 10px;
-  font-size: 0.9rem;
 }
 
 .price-table th,
 .price-table td {
   text-align: left;
-  padding: 14px 10px;
+  padding: 16px 10px;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
 
 .price-table th {
-  font-weight: 500;
-  font-family: var(--serif);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.1rem;
   white-space: nowrap;
-  color: var(--green-dark);
-  font-size: 0.85rem;
+  color: var(--ink);
+  letter-spacing: 0.06em;
 }
 
 .price-table .price,
 .price-list .price {
   white-space: nowrap;
   font-family: var(--en-serif);
-  font-size: 1.06rem;
+  font-weight: 600;
+  font-size: 1.25rem;
   letter-spacing: 0.04em;
+  color: var(--ink);
 }
 
 .price-table .desc {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
 }
 
+/* スマホはカード型:1行目=メニュー名+価格/2行目=説明 */
 @media (max-width: 620px) {
   .price-table,
   .price-table tbody {
@@ -623,7 +668,7 @@ p + p {
     justify-content: space-between;
     align-items: baseline;
     gap: 0 16px;
-    padding: 15px 2px;
+    padding: 16px 2px;
     border-bottom: 1px solid var(--line);
   }
   .price-table th,
@@ -634,6 +679,7 @@ p + p {
   }
   .price-table th {
     white-space: normal;
+    font-size: 1.02rem;
   }
   .price-table .desc {
     flex-basis: 100%;
@@ -657,6 +703,10 @@ p + p {
   border-bottom: 1px solid var(--line);
 }
 
+.price-list li > span:first-child {
+  font-weight: 700;
+}
+
 /* ---------- こだわりリスト ---------- */
 
 .feature-list {
@@ -676,47 +726,142 @@ p + p {
   top: 1.35em;
   width: 8px;
   height: 8px;
-  background: var(--green);
+  background: var(--accent);
   border-radius: 50%;
 }
 
-/* ---------- SHOP情報(定義リスト型) ---------- */
+/* ---------- SHOP情報(罫線なし・行間ゆったり) ---------- */
 
 .shop-info {
-  border-top: 1px solid var(--line);
   margin: 8px 0 30px;
 }
 
 .shop-info > div {
   display: flex;
-  gap: 22px;
-  padding: 17px 4px;
-  border-bottom: 1px solid var(--line);
+  gap: 26px;
+  align-items: flex-start;
+}
+
+.shop-info > div + div {
+  margin-top: 30px;
 }
 
 .shop-info dt {
-  width: 92px;
+  width: 108px;
   flex-shrink: 0;
   font-size: 0.8rem;
   font-weight: 400;
-  letter-spacing: 0.14em;
-  color: var(--green-dark);
-  padding-top: 2px;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  padding-top: 3px;
 }
 
 .shop-info dd {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
 }
 
-/* ---------- CTAブロック ---------- */
+@media (max-width: 560px) {
+  .shop-info > div {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .shop-info dt {
+    width: auto;
+  }
+}
 
-.cta-block {
+/* Google map リンク(金茶下線) */
+.map-link {
+  color: var(--accent-dark);
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 1px;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+}
+
+/* LINEテキストリンク(店舗情報表用) */
+.line-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--line-green);
+  border-bottom: 1px solid var(--line-green);
+  padding-bottom: 2px;
+}
+
+.line-text-link img {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- 予約の帯(写真+白い枠線ボタン・全ページ共通CTA) ---------- */
+
+.cta-band {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.cta-band > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 墨色30%オーバーレイ */
+.cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(43, 43, 43, 0.3);
+}
+
+.cta-inner {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
   text-align: center;
+  padding: 24px;
+  color: #fff;
 }
 
-.cta-block p {
-  margin-bottom: 26px;
+.cta-title {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 3.6vw, 1.3rem);
+  letter-spacing: 0.25em;
+  text-shadow: 0 1px 12px rgba(20, 18, 14, 0.4);
+}
+
+.cta-note {
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* 白い枠線だけのピル型ボタン(hoverで白背景・墨色文字に反転) */
+.btn-outline {
+  display: inline-block;
+  padding: 15px 52px;
+  font-size: 0.92rem;
+  letter-spacing: 0.18em;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 999px;
+  background: transparent;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: var(--ink);
 }
 
 /* ---------- 植物の線画(自作SVG) ---------- */
@@ -728,19 +873,11 @@ p + p {
   background-size: contain;
 }
 
-/* よもぎの小枝(ページ見出し用) */
+/* よもぎの小枝(ページ見出し用・金茶) */
 .sprig--yomogi {
   width: 48px;
   height: 46px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 46' fill='none' stroke='%234A5D4E' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 44 C 25 31, 26 18, 28 3'/%3E%3Cpath d='M23.5 33 C 14 31, 9 24.5, 11 17.5 C 17.5 20.5, 21.5 26.5, 23.5 33 Z'/%3E%3Cpath d='M25.5 23 C 34 21, 39 15, 37 8.5 C 30.5 11, 26.5 16.5, 25.5 23 Z'/%3E%3Cpath d='M24.5 38 C 30 37, 33.5 33.5, 33 29 C 28.5 30.5, 25.5 34, 24.5 38 Z'/%3E%3C/svg%3E");
-}
-
-/* 松の枝(セクション区切り用) */
-.sprig--pine {
-  width: 150px;
-  height: 44px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 44' fill='none' stroke='%232B2B2B' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M6 37 C 42 31, 96 25, 144 11'/%3E%3Cpath d='M30 32.5 L23 18'/%3E%3Cpath d='M30 32.5 L38 20'/%3E%3Cpath d='M58 28.5 L51 14'/%3E%3Cpath d='M58 28.5 L66 16'/%3E%3Cpath d='M88 23.5 L81 9'/%3E%3Cpath d='M88 23.5 L96 11'/%3E%3Cpath d='M116 18 L109 4'/%3E%3Cpath d='M116 18 L124 5.5'/%3E%3C/svg%3E");
-  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 46' fill='none' stroke='%23A6803C' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 44 C 25 31, 26 18, 28 3'/%3E%3Cpath d='M23.5 33 C 14 31, 9 24.5, 11 17.5 C 17.5 20.5, 21.5 26.5, 23.5 33 Z'/%3E%3Cpath d='M25.5 23 C 34 21, 39 15, 37 8.5 C 30.5 11, 26.5 16.5, 25.5 23 Z'/%3E%3Cpath d='M24.5 38 C 30 37, 33.5 33.5, 33 29 C 28.5 30.5, 25.5 34, 24.5 38 Z'/%3E%3C/svg%3E");
 }
 
 /* ---------- ロゴの透かし ---------- */
@@ -770,7 +907,9 @@ p + p {
 .map-wrap {
   margin: 10px 0 0;
   border: 1px solid var(--line);
-  background: var(--bg-white);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
 }
 
 .map-wrap iframe {
@@ -783,97 +922,124 @@ p + p {
 /* ---------- フッター ---------- */
 
 .site-footer {
-  background: var(--bg-soft);
   border-top: 1px solid var(--line);
-  padding: 64px 24px 110px;
-  text-align: center;
+  padding: 64px 24px 46px;
 }
 
 .footer-inner {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
+.footer-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.footer-left {
+  text-align: center;
+}
+
 .footer-logo {
-  width: 96px;
-  margin: 0 auto 20px;
+  width: 104px;
+  margin: 0 auto 10px;
 }
 
 .footer-name {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  letter-spacing: 0.14em;
-  margin-bottom: 18px;
+  font-family: var(--en-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
 }
 
-.footer-info {
-  font-size: 0.84rem;
-  color: var(--ink-soft);
+/* 英語住所(金茶・小さく) */
+.footer-address {
+  font-family: var(--en-serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
   line-height: 2.1;
-}
-
-.footer-line-btn {
-  margin: 30px auto 0;
-  max-width: 320px;
-}
-
-.footer-sns {
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-}
-
-.footer-sns a {
-  font-family: var(--en-serif);
-  font-size: 0.92rem;
-  letter-spacing: 0.14em;
-  border-bottom: 1px solid transparent;
-  transition: 0.25s;
-}
-
-.footer-sns a:hover {
-  border-bottom-color: var(--green);
-}
-
-.copyright {
-  margin-top: 38px;
-  font-family: var(--en-serif);
-  font-size: 0.76rem;
-  color: #9A958A;
-  letter-spacing: 0.14em;
-}
-
-/* page top */
-
-.page-top {
-  display: block;
+  color: var(--accent);
   text-align: right;
-  max-width: 960px;
-  margin: 34px auto 0;
-  font-family: var(--en-serif);
-  font-size: 0.76rem;
-  letter-spacing: 0.24em;
-  color: var(--ink-soft);
-  transition: color 0.25s;
+  text-transform: uppercase;
 }
 
-.page-top::after {
-  content: " \2191";
+/* 円形の上向き矢印(page top・金茶細線) */
+.page-top {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: background 0.3s ease;
+}
+
+.page-top svg {
+  width: 14px;
+  height: 16px;
+  stroke: var(--accent);
 }
 
 .page-top:hover {
-  color: var(--green);
+  background: rgba(166, 128, 60, 0.1);
 }
 
-/* ---------- 固定LINEボタン ---------- */
+/* SNSアイコン(横一列・中央揃え・©の上) */
+.footer-sns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.footer-sns a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  transition: opacity 0.25s;
+}
+
+.footer-sns a:hover {
+  opacity: 0.65;
+}
+
+.footer-sns img {
+  width: 100%;
+  height: 100%;
+}
+
+.copyright {
+  margin-top: 20px;
+  text-align: center;
+  font-family: var(--en-serif);
+  font-size: 0.76rem;
+  color: #9A958A;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 620px) {
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .footer-address {
+    text-align: center;
+  }
+}
+
+/* ---------- 固定LINEボタン(LINEブランド緑・例外) ---------- */
 
 .line-fixed {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 200;
-  background: var(--green);
+  background: var(--line-green);
   color: #fff;
   font-size: 0.84rem;
   letter-spacing: 0.08em;
@@ -884,5 +1050,5 @@ p + p {
 }
 
 .line-fixed:hover {
-  background: var(--green-dark);
+  background: var(--line-green-dark);
 }
