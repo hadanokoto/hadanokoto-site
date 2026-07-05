@@ -20,12 +20,12 @@
   <link rel="icon" href="assets/img/hadanokologojpg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="header-inner">
     <a class="brand" href="index.html">
       <img src="assets/img/hadanokologojpg.jpg" alt="ハダノコトサロン ロゴ">
@@ -36,56 +36,85 @@
     </button>
     <nav class="site-nav">
       <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="matsuyani.html" aria-current="page">マツヤニパック</a></li>
-        <li><a href="menu.html">メニュー・料金</a></li>
-        <li><a href="about.html">サロンについて</a></li>
-        <li><a href="access.html">アクセス・ご予約</a></li>
+        <li><a href="index.html"><span class="en">Home</span><span class="ja">ホーム</span></a></li>
+        <li><a href="matsuyani.html" aria-current="page"><span class="en">Treatment</span><span class="ja">マツヤニパック</span></a></li>
+        <li><a href="menu.html"><span class="en">Menu</span><span class="ja">メニュー・料金</span></a></li>
+        <li><a href="about.html"><span class="en">About</span><span class="ja">サロンについて</span></a></li>
+        <li><a href="access.html"><span class="en">Access</span><span class="ja">アクセス・ご予約</span></a></li>
       </ul>
+      <p class="nav-copy">&copy;hadanokoto salon</p>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <section>
-    <h1>あたためて、はがす。<br>昔ながらの知恵が生きたパック。</h1>
-    <div class="ph"><span>写真準備中</span></div>
-    <p>バイオウォーミーパック（マツヤニパック）は、天然の松やにを主原料にしたパックを、あたたかいまま肌にのせて、固まったらはがすという施術です。</p>
-    <p>毛穴にたまった汚れや古い角質、お顔の産毛までまとめてオフ。はがしたあとの、つるんとした肌ざわりに驚かれる方がとても多い、当サロンの看板メニューです。</p>
+  <section class="band band--head">
+    <div class="inner">
+      <div class="sprig sprig--yomogi" aria-hidden="true"></div>
+      <h1 class="sec-head">
+        <span class="en">Treatment</span>
+        <span class="ja">バイオウォーミーパック（マツヤニパック）</span>
+      </h1>
+      <p class="catch">あたためて、はがす。<br>昔ながらの知恵が生きたパック。</p>
+      <div class="ph"><img src="assets/img/hadanokologojpg.jpg" alt=""><span>photo coming soon</span></div>
+      <p>バイオウォーミーパック（マツヤニパック）は、天然の松やにを主原料にしたパックを、あたたかいまま肌にのせて、固まったらはがすという施術です。</p>
+      <p>毛穴にたまった汚れや古い角質、お顔の産毛までまとめてオフ。はがしたあとの、つるんとした肌ざわりに驚かれる方がとても多い、当サロンの看板メニューです。</p>
+    </div>
   </section>
 
-  <section>
-    <h2>「ちょっと怖い」と思った方へ</h2>
-    <p>「はがすなんて、痛くないの？」——初めての方はみなさん、そうおっしゃいます。</p>
-    <p>だからこそ当サロンでは、いきなりパックはいたしません。初めての方には2回セットの<strong>スタートコース</strong>をご用意し、1回目はミューフル化粧品のジェルエステとパッチテストでお肌の状態を確認。2回目に初めてパックを体験していただきます。</p>
-    <p>お肌は一人ひとり違うもの。急がず、確かめながら進めるのが、ハダノコトサロンのやり方です。</p>
+  <section class="band band--white">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 01</span>
+        <span class="en">First Visit</span>
+        <span class="ja">「ちょっと怖い」と思った方へ</span>
+      </h2>
+      <p>「はがすなんて、痛くないの？」——初めての方はみなさん、そうおっしゃいます。</p>
+      <p>だからこそ当サロンでは、いきなりパックはいたしません。初めての方には2回セットの<strong>スタートコース</strong>をご用意し、1回目はミューフル化粧品のジェルエステとパッチテストでお肌の状態を確認。2回目に初めてパックを体験していただきます。</p>
+      <p>お肌は一人ひとり違うもの。急がず、確かめながら進めるのが、ハダノコトサロンのやり方です。</p>
+    </div>
   </section>
 
-  <section>
-    <h2>料金</h2>
-    <ul class="price-list">
-      <li><span>スタートコース（初めての方・2回セット）</span><span class="price">8,000円</span></li>
-      <li><span>毛穴ケアコース（3回目以降の定期ケア）</span><span class="price">7,500円</span></li>
-      <li><span>毛穴ケア＋引き締めケア</span><span class="price">10,000円</span></li>
-      <li><span>マツビオセット（マツヤニパック×ビオスチーム）</span><span class="price">11,500円</span></li>
-    </ul>
-    <p class="note">※すべて税込・都度払い。コースのご契約はありません。</p>
+  <section class="band band--green">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 02</span>
+        <span class="en">Price</span>
+        <span class="ja">料金</span>
+      </h2>
+      <ul class="price-list">
+        <li><span>スタートコース（初めての方・2回セット）</span><span class="price">8,000円</span></li>
+        <li><span>毛穴ケアコース（3回目以降の定期ケア）</span><span class="price">7,500円</span></li>
+        <li><span>毛穴ケア＋引き締めケア</span><span class="price">10,000円</span></li>
+        <li><span>マツビオセット（マツヤニパック×ビオスチーム）</span><span class="price">11,500円</span></li>
+      </ul>
+      <p class="note">※すべて税込・都度払い。コースのご契約はありません。</p>
+    </div>
   </section>
 
-  <section>
-    <h2>ホームケアについて</h2>
-    <p>サロンでのケアと同じくらい、毎日のおうちでのお手入れを大切にしています。当サロンはミューフル化粧品の正規取扱店（MEPマイスター取扱店）。お手入れが続く秘訣は、結果が出ることで楽しくなること。あなたのペースに合う続け方を、一緒に見つけていきます。</p>
+  <section class="band band--white">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 03</span>
+        <span class="en">Home Care</span>
+        <span class="ja">ホームケアについて</span>
+      </h2>
+      <p>サロンでのケアと同じくらい、毎日のおうちでのお手入れを大切にしています。当サロンはミューフル化粧品の正規取扱店（MEPマイスター取扱店）。お手入れが続く秘訣は、結果が出ることで楽しくなること。あなたのペースに合う続け方を、一緒に見つけていきます。</p>
+    </div>
   </section>
 
-  <section class="cta-block">
-    <p>初めての方は、まずはスタートコースから。<br>ご不安な点も、LINEでお気軽にご相談ください。</p>
-    <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEでスタートコースを予約する</a>
+  <section class="band band--cta">
+    <div class="inner cta-block fade">
+      <div class="sprig sprig--pine" aria-hidden="true"></div>
+      <p>初めての方は、まずはスタートコースから。<br>ご不安な点も、LINEでお気軽にご相談ください。</p>
+      <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEでスタートコースを予約する</a>
+    </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer wm">
   <div class="footer-inner">
     <img class="footer-logo" src="assets/img/hadanokologojpg.jpg" alt="">
     <p class="footer-name">ハダノコトサロン</p>
@@ -101,6 +130,7 @@
       <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
     </div>
     <p class="copyright">&copy; HADANOKOTO SALON</p>
+    <a class="page-top" href="#top">page top</a>
   </div>
 </footer>
 

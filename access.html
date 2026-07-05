@@ -20,12 +20,12 @@
   <link rel="icon" href="assets/img/hadanokologojpg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="header-inner">
     <a class="brand" href="index.html">
       <img src="assets/img/hadanokologojpg.jpg" alt="ハダノコトサロン ロゴ">
@@ -36,58 +36,100 @@
     </button>
     <nav class="site-nav">
       <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="matsuyani.html">マツヤニパック</a></li>
-        <li><a href="menu.html">メニュー・料金</a></li>
-        <li><a href="about.html">サロンについて</a></li>
-        <li><a href="access.html" aria-current="page">アクセス・ご予約</a></li>
+        <li><a href="index.html"><span class="en">Home</span><span class="ja">ホーム</span></a></li>
+        <li><a href="matsuyani.html"><span class="en">Treatment</span><span class="ja">マツヤニパック</span></a></li>
+        <li><a href="menu.html"><span class="en">Menu</span><span class="ja">メニュー・料金</span></a></li>
+        <li><a href="about.html"><span class="en">About</span><span class="ja">サロンについて</span></a></li>
+        <li><a href="access.html" aria-current="page"><span class="en">Access</span><span class="ja">アクセス・ご予約</span></a></li>
       </ul>
+      <p class="nav-copy">&copy;hadanokoto salon</p>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <section>
-    <h1>アクセス・ご予約</h1>
-    <p>
-      <strong>ハダノコトサロン</strong><br>
-      〒839-0841 福岡県久留米市御井旗崎5-9-5 プレスト御井駅前104<br>
-      電話：0942-25-8946<br>
-      営業時間：10:00〜18:00（火・金は20:00まで予約対応）<br>
-      定休日：水曜日（不定休あり）
-    </p>
-    <p>
-      JR御井駅から徒歩2分／久留米インターより車で3分／駐車場あり<br>
-      鳥栖・佐賀・日田方面からも通っていただけます。
-    </p>
-    <p>ご予約・ご相談は公式LINEからが便利です。24時間受付、既読になり次第お返事します。</p>
-  </section>
-
-  <section>
-    <h2>地図</h2>
-    <div class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E4%B9%85%E7%95%99%E7%B1%B3%E5%B8%82%E5%BE%A1%E4%BA%95%E6%97%97%E5%B4%8E5-9-5%20%E3%83%97%E3%83%AC%E3%82%B9%E3%83%88%E5%BE%A1%E4%BA%95%E9%A7%85%E5%89%8D&output=embed"
-        title="ハダノコトサロンの地図"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        allowfullscreen></iframe>
+  <section class="band band--head">
+    <div class="inner">
+      <div class="sprig sprig--yomogi" aria-hidden="true"></div>
+      <h1 class="sec-head">
+        <span class="en">Access</span>
+        <span class="ja">アクセス・ご予約</span>
+      </h1>
     </div>
   </section>
 
-  <section class="cta-block">
-    <p>ご予約・ご相談はこちらから。</p>
-    <a class="btn btn-primary btn-large" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約する</a>
-    <div class="footer-sns" style="margin-top: 24px;">
-      <a href="https://www.instagram.com/hadanokoto/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
+  <section class="band band--white">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 01</span>
+        <span class="en">Shop</span>
+        <span class="ja">店舗情報</span>
+      </h2>
+      <dl class="shop-info">
+        <div>
+          <dt>店名</dt>
+          <dd>ハダノコトサロン</dd>
+        </div>
+        <div>
+          <dt>住所</dt>
+          <dd>〒839-0841 福岡県久留米市御井旗崎5-9-5 プレスト御井駅前104</dd>
+        </div>
+        <div>
+          <dt>電話</dt>
+          <dd>0942-25-8946</dd>
+        </div>
+        <div>
+          <dt>営業時間</dt>
+          <dd>10:00〜18:00（火・金は20:00まで予約対応）</dd>
+        </div>
+        <div>
+          <dt>定休日</dt>
+          <dd>水曜日（不定休あり）</dd>
+        </div>
+        <div>
+          <dt>アクセス</dt>
+          <dd>JR御井駅から徒歩2分／久留米インターより車で3分／駐車場あり</dd>
+        </div>
+      </dl>
+      <p>鳥栖・佐賀・日田方面からも通っていただけます。</p>
+      <p>ご予約・ご相談は公式LINEからが便利です。24時間受付、既読になり次第お返事します。</p>
+    </div>
+  </section>
+
+  <section class="band band--green">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 02</span>
+        <span class="en">Map</span>
+        <span class="ja">地図</span>
+      </h2>
+      <div class="map-wrap">
+        <iframe
+          src="https://www.google.com/maps?q=%E7%A6%8F%E5%B2%A1%E7%9C%8C%E4%B9%85%E7%95%99%E7%B1%B3%E5%B8%82%E5%BE%A1%E4%BA%95%E6%97%97%E5%B4%8E5-9-5%20%E3%83%97%E3%83%AC%E3%82%B9%E3%83%88%E5%BE%A1%E4%BA%95%E9%A7%85%E5%89%8D&output=embed"
+          title="ハダノコトサロンの地図"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--cta">
+    <div class="inner cta-block fade">
+      <div class="sprig sprig--pine" aria-hidden="true"></div>
+      <p>ご予約・ご相談はこちらから。</p>
+      <a class="btn btn-primary btn-large" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約する</a>
+      <div class="footer-sns" style="margin-top: 26px;">
+        <a href="https://www.instagram.com/hadanokoto/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
+      </div>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer wm">
   <div class="footer-inner">
     <img class="footer-logo" src="assets/img/hadanokologojpg.jpg" alt="">
     <p class="footer-name">ハダノコトサロン</p>
@@ -103,6 +145,7 @@
       <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
     </div>
     <p class="copyright">&copy; HADANOKOTO SALON</p>
+    <a class="page-top" href="#top">page top</a>
   </div>
 </footer>
 

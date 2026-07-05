@@ -20,12 +20,12 @@
   <link rel="icon" href="assets/img/hadanokologojpg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="header-inner">
     <a class="brand" href="index.html">
       <img src="assets/img/hadanokologojpg.jpg" alt="ハダノコトサロン ロゴ">
@@ -36,200 +36,234 @@
     </button>
     <nav class="site-nav">
       <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="matsuyani.html">マツヤニパック</a></li>
-        <li><a href="menu.html" aria-current="page">メニュー・料金</a></li>
-        <li><a href="about.html">サロンについて</a></li>
-        <li><a href="access.html">アクセス・ご予約</a></li>
+        <li><a href="index.html"><span class="en">Home</span><span class="ja">ホーム</span></a></li>
+        <li><a href="matsuyani.html"><span class="en">Treatment</span><span class="ja">マツヤニパック</span></a></li>
+        <li><a href="menu.html" aria-current="page"><span class="en">Menu</span><span class="ja">メニュー・料金</span></a></li>
+        <li><a href="about.html"><span class="en">About</span><span class="ja">サロンについて</span></a></li>
+        <li><a href="access.html"><span class="en">Access</span><span class="ja">アクセス・ご予約</span></a></li>
       </ul>
+      <p class="nav-copy">&copy;hadanokoto salon</p>
     </nav>
   </div>
 </header>
 
 <main>
 
-  <section>
-    <h1>メニュー・料金</h1>
-    <p>すべて完全予約制・税込・都度払いです。コースのご契約や無理なおすすめはいたしません。迷われたら、カウンセリングでご一緒に決めましょう。</p>
+  <section class="band band--head">
+    <div class="inner">
+      <div class="sprig sprig--yomogi" aria-hidden="true"></div>
+      <h1 class="sec-head">
+        <span class="en">Menu</span>
+        <span class="ja">メニュー・料金</span>
+      </h1>
+      <p>すべて完全予約制・税込・都度払いです。コースのご契約や無理なおすすめはいたしません。迷われたら、カウンセリングでご一緒に決めましょう。</p>
+    </div>
   </section>
 
   <!-- 1. ビオスチーム -->
-  <section>
-    <h2>ビオスチーム（発酵野草蒸し・温活ケア）</h2>
-    <table class="price-table">
-      <tr>
-        <th>はじめてのビオスチーム</th>
-        <td class="price">4,000円</td>
-        <td class="desc">初回限定。カウンセリング＋30分程度。シリカ水・オーガニックマント貸出込み</td>
-      </tr>
-      <tr>
-        <th>いつものビオスチーム</th>
-        <td class="price">6,000円</td>
-        <td class="desc">2回目以降。40〜50分。シリカ水・オーガニックマント貸出込み</td>
-      </tr>
-      <tr>
-        <th>マツビオセット</th>
-        <td class="price">11,500円</td>
-        <td class="desc">マツヤニパック×ビオスチームのコラボ。当サロンオリジナル・人気メニュー</td>
-      </tr>
-    </table>
-    <p>使用する野草は全12種類。よもぎ・クマザサ・ミキ（サツマイモ）・モリンガ・ドクダミ・スギナ・ウコン・柿の葉・松・カカオ・ハイビスカス・ベニバナ。すべてに玄米麹・玄米酵母の発酵エキスを配合しています。</p>
-    <p>天尊の塩を配合したビオスチームを受けられるのは、全国でハダノコトサロンだけです（蔵元・CALSEED社確認済み／2026年）。</p>
+  <section class="band band--white">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 01</span>
+        <span class="en">Bio Steam</span>
+        <span class="ja">ビオスチーム（発酵野草蒸し・温活ケア）</span>
+      </h2>
+      <table class="price-table">
+        <tr>
+          <th>はじめてのビオスチーム</th>
+          <td class="price">4,000円</td>
+          <td class="desc">初回限定。カウンセリング＋30分程度。シリカ水・オーガニックマント貸出込み</td>
+        </tr>
+        <tr>
+          <th>いつものビオスチーム</th>
+          <td class="price">6,000円</td>
+          <td class="desc">2回目以降。40〜50分。シリカ水・オーガニックマント貸出込み</td>
+        </tr>
+        <tr>
+          <th>マツビオセット</th>
+          <td class="price">11,500円</td>
+          <td class="desc">マツヤニパック×ビオスチームのコラボ。当サロンオリジナル・人気メニュー</td>
+        </tr>
+      </table>
+      <p>使用する野草は全12種類。よもぎ・クマザサ・ミキ（サツマイモ）・モリンガ・ドクダミ・スギナ・ウコン・柿の葉・松・カカオ・ハイビスカス・ベニバナ。すべてに玄米麹・玄米酵母の発酵エキスを配合しています。</p>
+      <p>天尊の塩を配合したビオスチームを受けられるのは、全国でハダノコトサロンだけです（蔵元・CALSEED社確認済み／2026年）。</p>
+    </div>
   </section>
 
   <!-- 2. myufull facial menu 1 -->
-  <section>
-    <h2>myufull facial menu 1（マツヤニパック・ミューフル化粧品）</h2>
-    <table class="price-table">
-      <tr>
-        <th>スタートコース</th>
-        <td class="price">8,000円（2回セット）</td>
-        <td class="desc">はじめてのマツヤニパック体験。1回目はジェルエステ＋パッチテスト、2回目はマツヤニパック＋EMS美顔器。3回目以降は毛穴ケアコースへ移行</td>
-      </tr>
-      <tr>
-        <th>毛穴ケアコース</th>
-        <td class="price">7,500円</td>
-        <td class="desc">スタートコース後の定期ケア。ジェルエステ＋マツヤニパックでつるんと陶器肌をキープ</td>
-      </tr>
-      <tr>
-        <th>毛穴ケア＋引き締めケア</th>
-        <td class="price">10,000円</td>
-        <td class="desc">毛穴ケアにミューフル美顔器をプラス。毛穴の開き・たるみ・ハリ不足が気になる方向け</td>
-      </tr>
-      <tr>
-        <th>ジェルエステ</th>
-        <td class="price">4,000円</td>
-        <td class="desc">ミューフル化粧品を使った肌質改善コース。お肌の土台をやさしく整える</td>
-      </tr>
-    </table>
-    <p class="note"><a href="matsuyani.html">マツヤニパックについて詳しくはこちら</a></p>
+  <section class="band">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 02</span>
+        <span class="en">myufull facial menu 1</span>
+        <span class="ja">マツヤニパック・ミューフル化粧品</span>
+      </h2>
+      <table class="price-table">
+        <tr>
+          <th>スタートコース</th>
+          <td class="price">8,000円（2回セット）</td>
+          <td class="desc">はじめてのマツヤニパック体験。1回目はジェルエステ＋パッチテスト、2回目はマツヤニパック＋EMS美顔器。3回目以降は毛穴ケアコースへ移行</td>
+        </tr>
+        <tr>
+          <th>毛穴ケアコース</th>
+          <td class="price">7,500円</td>
+          <td class="desc">スタートコース後の定期ケア。ジェルエステ＋マツヤニパックでつるんと陶器肌をキープ</td>
+        </tr>
+        <tr>
+          <th>毛穴ケア＋引き締めケア</th>
+          <td class="price">10,000円</td>
+          <td class="desc">毛穴ケアにミューフル美顔器をプラス。毛穴の開き・たるみ・ハリ不足が気になる方向け</td>
+        </tr>
+        <tr>
+          <th>ジェルエステ</th>
+          <td class="price">4,000円</td>
+          <td class="desc">ミューフル化粧品を使った肌質改善コース。お肌の土台をやさしく整える</td>
+        </tr>
+      </table>
+      <p class="note"><a href="matsuyani.html">マツヤニパックについて詳しくはこちら</a></p>
+    </div>
   </section>
 
   <!-- 3. myufull facial menu 2 -->
-  <section>
-    <h2>myufull facial menu 2（スペシャルケア）</h2>
-    <table class="price-table">
-      <tr>
-        <th>毛穴洗浄</th>
-        <td class="price">5,500円</td>
-        <td class="desc">顔全体の毛穴の黒ずみ・角栓をしっかり洗浄。毛穴の開きが気になる方向け</td>
-      </tr>
-      <tr>
-        <th>毛穴洗浄＋マツヤニパック</th>
-        <td class="price">10,500円</td>
-        <td class="desc">洗浄後にマツヤニパックで仕上げ。毛穴を一掃したい方に。部分希望はご相談</td>
-      </tr>
-      <tr>
-        <th>E-ライトフェイシャル</th>
-        <td class="price">6,500円</td>
-        <td class="desc">光フォトフェイシャルでシミ・くすみ・赤みなどあらゆる悩みに対応</td>
-      </tr>
-      <tr>
-        <th>ドライヘッドマッサージ</th>
-        <td class="price">4,500円</td>
-        <td class="desc">約30分で頭・顔のツボ押しとマッサージ。頭のこりをほぐしてお顔もスッキリ引き上げ</td>
-      </tr>
-    </table>
+  <section class="band band--green">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 03</span>
+        <span class="en">myufull facial menu 2</span>
+        <span class="ja">スペシャルケア</span>
+      </h2>
+      <table class="price-table">
+        <tr>
+          <th>毛穴洗浄</th>
+          <td class="price">5,500円</td>
+          <td class="desc">顔全体の毛穴の黒ずみ・角栓をしっかり洗浄。毛穴の開きが気になる方向け</td>
+        </tr>
+        <tr>
+          <th>毛穴洗浄＋マツヤニパック</th>
+          <td class="price">10,500円</td>
+          <td class="desc">洗浄後にマツヤニパックで仕上げ。毛穴を一掃したい方に。部分希望はご相談</td>
+        </tr>
+        <tr>
+          <th>E-ライトフェイシャル</th>
+          <td class="price">6,500円</td>
+          <td class="desc">光フォトフェイシャルでシミ・くすみ・赤みなどあらゆる悩みに対応</td>
+        </tr>
+        <tr>
+          <th>ドライヘッドマッサージ</th>
+          <td class="price">4,500円</td>
+          <td class="desc">約30分で頭・顔のツボ押しとマッサージ。頭のこりをほぐしてお顔もスッキリ引き上げ</td>
+        </tr>
+      </table>
+    </div>
   </section>
 
   <!-- 4. 美肌脱毛 -->
-  <section>
-    <h2>美肌脱毛（ペガサスプロ使用・氷結冷却・都度払いあり）</h2>
+  <section class="band band--white">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 04</span>
+        <span class="en">Hair Removal</span>
+        <span class="ja">美肌脱毛（ペガサスプロ使用・氷結冷却・都度払いあり）</span>
+      </h2>
 
-    <h3>WOMEN</h3>
-    <table class="price-table">
-      <tr>
-        <th>Sパーツ</th>
-        <td class="price">2,200円</td>
-        <td class="desc">ワキ／鼻下／手の甲／足の甲／うなじ／膝</td>
-      </tr>
-      <tr>
-        <th>Mパーツ</th>
-        <td class="price">3,300円</td>
-        <td class="desc">顔／V／I／O／胸／腹／ヒジ下／ヒジ上</td>
-      </tr>
-      <tr>
-        <th>Lパーツ</th>
-        <td class="price">4,500円</td>
-        <td class="desc">背中／ヒップ／ヒザ上／ヒザ下</td>
-      </tr>
-      <tr>
-        <th>VIOセット</th>
-        <td class="price">8,000円</td>
-        <td class="desc">—</td>
-      </tr>
-      <tr>
-        <th>全身脱毛</th>
-        <td class="price">15,500円</td>
-        <td class="desc">顔とIOは含まれません</td>
-      </tr>
-      <tr>
-        <th>Mパーツ×2箇所割</th>
-        <td class="price">6,000円</td>
-        <td class="desc">—</td>
-      </tr>
-    </table>
+      <h3>WOMEN</h3>
+      <table class="price-table">
+        <tr>
+          <th>Sパーツ</th>
+          <td class="price">2,200円</td>
+          <td class="desc">ワキ／鼻下／手の甲／足の甲／うなじ／膝</td>
+        </tr>
+        <tr>
+          <th>Mパーツ</th>
+          <td class="price">3,300円</td>
+          <td class="desc">顔／V／I／O／胸／腹／ヒジ下／ヒジ上</td>
+        </tr>
+        <tr>
+          <th>Lパーツ</th>
+          <td class="price">4,500円</td>
+          <td class="desc">背中／ヒップ／ヒザ上／ヒザ下</td>
+        </tr>
+        <tr>
+          <th>VIOセット</th>
+          <td class="price">8,000円</td>
+          <td class="desc">—</td>
+        </tr>
+        <tr>
+          <th>全身脱毛</th>
+          <td class="price">15,500円</td>
+          <td class="desc">顔とIOは含まれません</td>
+        </tr>
+        <tr>
+          <th>Mパーツ×2箇所割</th>
+          <td class="price">6,000円</td>
+          <td class="desc">—</td>
+        </tr>
+      </table>
 
-    <h3>MEN</h3>
-    <table class="price-table">
-      <tr>
-        <th>Sパーツ</th>
-        <td class="price">3,000円</td>
-        <td class="desc">ワキ／鼻下／手の甲／足の甲／うなじ／膝</td>
-      </tr>
-      <tr>
-        <th>Mパーツ</th>
-        <td class="price">4,000円</td>
-        <td class="desc">顔／V／I／O／胸／腹／ヒジ下／ヒジ上</td>
-      </tr>
-      <tr>
-        <th>Lパーツ</th>
-        <td class="price">5,200円</td>
-        <td class="desc">背中／ヒップ／ヒザ上／ヒザ下</td>
-      </tr>
-      <tr>
-        <th>Mパーツ×2箇所割</th>
-        <td class="price">7,200円</td>
-        <td class="desc">—</td>
-      </tr>
-      <tr>
-        <th>VIOセット</th>
-        <td class="price">10,000円</td>
-        <td class="desc">※新規のお客様の予約は承っていません</td>
-      </tr>
-      <tr>
-        <th>ヒゲ脱毛</th>
-        <td class="price">4,950円</td>
-        <td class="desc">—</td>
-      </tr>
-      <tr>
-        <th>顔全体</th>
-        <td class="price">5,500円</td>
-        <td class="desc">—</td>
-      </tr>
-      <tr>
-        <th>全身脱毛</th>
-        <td class="price">19,200円</td>
-        <td class="desc">顔とIOは含まれません</td>
-      </tr>
-    </table>
+      <h3>MEN</h3>
+      <table class="price-table">
+        <tr>
+          <th>Sパーツ</th>
+          <td class="price">3,000円</td>
+          <td class="desc">ワキ／鼻下／手の甲／足の甲／うなじ／膝</td>
+        </tr>
+        <tr>
+          <th>Mパーツ</th>
+          <td class="price">4,000円</td>
+          <td class="desc">顔／V／I／O／胸／腹／ヒジ下／ヒジ上</td>
+        </tr>
+        <tr>
+          <th>Lパーツ</th>
+          <td class="price">5,200円</td>
+          <td class="desc">背中／ヒップ／ヒザ上／ヒザ下</td>
+        </tr>
+        <tr>
+          <th>Mパーツ×2箇所割</th>
+          <td class="price">7,200円</td>
+          <td class="desc">—</td>
+        </tr>
+        <tr>
+          <th>VIOセット</th>
+          <td class="price">10,000円</td>
+          <td class="desc">※新規のお客様の予約は承っていません</td>
+        </tr>
+        <tr>
+          <th>ヒゲ脱毛</th>
+          <td class="price">4,950円</td>
+          <td class="desc">—</td>
+        </tr>
+        <tr>
+          <th>顔全体</th>
+          <td class="price">5,500円</td>
+          <td class="desc">—</td>
+        </tr>
+        <tr>
+          <th>全身脱毛</th>
+          <td class="price">19,200円</td>
+          <td class="desc">顔とIOは含まれません</td>
+        </tr>
+      </table>
 
-    <h3>学割（STUDENT DISCOUNT）</h3>
-    <ul class="feature-list">
-      <li>高校生〜大学生：20% OFF</li>
-      <li>中学生：女性料金より20% OFF</li>
-      <li>小学生：女性料金より半額</li>
-    </ul>
+      <h3>学割（STUDENT DISCOUNT）</h3>
+      <ul class="feature-list">
+        <li>高校生〜大学生：20% OFF</li>
+        <li>中学生：女性料金より20% OFF</li>
+        <li>小学生：女性料金より半額</li>
+      </ul>
+    </div>
   </section>
 
-  <section class="cta-block">
-    <p>料金は2026年7月現在のものです。最新の空き状況・ご不明点はLINEからお気軽にどうぞ。</p>
-    <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約・相談する</a>
+  <section class="band band--cta">
+    <div class="inner cta-block fade">
+      <div class="sprig sprig--pine" aria-hidden="true"></div>
+      <p>料金は2026年7月現在のものです。最新の空き状況・ご不明点はLINEからお気軽にどうぞ。</p>
+      <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約・相談する</a>
+    </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer wm">
   <div class="footer-inner">
     <img class="footer-logo" src="assets/img/hadanokologojpg.jpg" alt="">
     <p class="footer-name">ハダノコトサロン</p>
@@ -245,6 +279,7 @@
       <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
     </div>
     <p class="copyright">&copy; HADANOKOTO SALON</p>
+    <a class="page-top" href="#top">page top</a>
   </div>
 </footer>
 

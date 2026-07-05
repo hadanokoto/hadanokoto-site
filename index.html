@@ -20,7 +20,7 @@
   <link rel="icon" href="assets/img/hadanokologojpg.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- JSON-LD (LocalBusiness / BeautySalon) -->
@@ -64,7 +64,7 @@
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="top">
   <div class="header-inner">
     <a class="brand" href="index.html">
       <img src="assets/img/hadanokologojpg.jpg" alt="ハダノコトサロン ロゴ">
@@ -75,12 +75,13 @@
     </button>
     <nav class="site-nav">
       <ul>
-        <li><a href="index.html" aria-current="page">ホーム</a></li>
-        <li><a href="matsuyani.html">マツヤニパック</a></li>
-        <li><a href="menu.html">メニュー・料金</a></li>
-        <li><a href="about.html">サロンについて</a></li>
-        <li><a href="access.html">アクセス・ご予約</a></li>
+        <li><a href="index.html" aria-current="page"><span class="en">Home</span><span class="ja">ホーム</span></a></li>
+        <li><a href="matsuyani.html"><span class="en">Treatment</span><span class="ja">マツヤニパック</span></a></li>
+        <li><a href="menu.html"><span class="en">Menu</span><span class="ja">メニュー・料金</span></a></li>
+        <li><a href="about.html"><span class="en">About</span><span class="ja">サロンについて</span></a></li>
+        <li><a href="access.html"><span class="en">Access</span><span class="ja">アクセス・ご予約</span></a></li>
       </ul>
+      <p class="nav-copy">&copy;hadanokoto salon</p>
     </nav>
   </div>
 </header>
@@ -91,57 +92,89 @@
   <div class="hero">
     <img class="hero-logo" src="assets/img/hadanokologojpg.jpg" alt="ハダノコトサロン HADANOKOTO SKIN AND LIFE BEAUTY">
     <p class="hero-copy">肌が変わると、<br>人生が変わる。</p>
-    <p class="hero-sub">
-      久留米市御井の完全予約制・完全個室プライベートサロン
-      <strong>ハダノコトサロン</strong>
-    </p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約する</a>
-      <a class="btn btn-ghost" href="menu.html">メニューを見る</a>
-    </div>
+    <p class="hero-address">Presto Mii-Ekimae 104, 5-9-5 Mii-Hatazaki,<br>Kurume, Fukuoka, Japan</p>
+    <div class="scroll-cue" aria-hidden="true"><span>scroll</span><i></i></div>
   </div>
 
-  <!-- リード文 -->
-  <section>
-    <p>はじめまして。ハダノコトサロンの河津順子です。</p>
-    <p>当サロンは、お一人おひとりとゆっくり向き合いたくて、完全予約制・完全個室・私ひとりで営んでいる小さなサロンです。</p>
-    <p>目指しているのは、その場かぎりの特別ではなく、10年後も「今の自分がいちばん好き」と思える素肌を、一緒に育てていくこと。</p>
-    <p>がんばらなくていい、お肌の土台づくりから始めませんか。</p>
+  <!-- ABOUT(リード文) -->
+  <section class="band band--white wm">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 01</span>
+        <span class="en">About</span>
+        <span class="ja">わたしたちの思い</span>
+      </h2>
+      <p>はじめまして。ハダノコトサロンの河津順子です。</p>
+      <p>当サロンは、お一人おひとりとゆっくり向き合いたくて、完全予約制・完全個室・私ひとりで営んでいる小さなサロンです。</p>
+      <p>目指しているのは、その場かぎりの特別ではなく、10年後も「今の自分がいちばん好き」と思える素肌を、一緒に育てていくこと。</p>
+      <p>がんばらなくていい、お肌の土台づくりから始めませんか。</p>
+    </div>
   </section>
 
-  <!-- 3つの柱 -->
-  <section>
-    <h2>ハダノコトサロンの3つの柱</h2>
-    <div class="pillars">
-      <div class="pillar">
-        <h3>バイオウォーミーパック（マツヤニパック）</h3>
-        <p>天然の松やにを使った、当サロンの看板メニュー。じんわり温めながら毛穴の汚れをオフし、つるんとした陶器のような肌ざわりへ。</p>
-        <a class="more" href="matsuyani.html">詳しく見る</a>
-      </div>
-      <div class="pillar">
-        <h3>ビオスチーム（発酵野草蒸し）</h3>
-        <p>よもぎ・モリンガなど12種類の野草に玄米麹・玄米酵母の発酵エキスを合わせた、座って浴びる蒸気の温活ケア。天尊の塩を配合したビオスチームを受けられるのは、全国でハダノコトサロンだけです（蔵元・CALSEED社確認済み／2026年）。</p>
-        <a class="more" href="menu.html">メニューへ</a>
-      </div>
-      <div class="pillar">
-        <h3>美肌脱毛</h3>
-        <p>痛みを抑えた脱毛機「ペガサスプロ」を使用。コースの契約はなく、都度払いで通いたいときに通えます。学割あり。</p>
-        <a class="more" href="menu.html">メニューへ</a>
+  <!-- PHOTO(ギャラリー) -->
+  <section class="band">
+    <div class="inner fade">
+      <h2 class="sec-head">
+        <span class="sec-num">content 02</span>
+        <span class="en">Photo</span>
+        <span class="ja">サロンの風景</span>
+      </h2>
+      <div class="gallery">
+        <div class="ph g1"><img src="assets/img/hadanokologojpg.jpg" alt=""><span>photo coming soon</span></div>
+        <div class="ph g2"><img src="assets/img/hadanokologojpg.jpg" alt=""><span>photo coming soon</span></div>
+        <div class="ph g3"><img src="assets/img/hadanokologojpg.jpg" alt=""><span>photo coming soon</span></div>
+        <div class="ph g4"><img src="assets/img/hadanokologojpg.jpg" alt=""><span>photo coming soon</span></div>
       </div>
     </div>
   </section>
 
-  <!-- クロージング -->
-  <section class="cta-block">
-    <p>JR御井駅から徒歩2分、久留米インターから車で3分。駐車場もございます。<br>
-    鳥栖・佐賀・日田方面からも通っていただいています。<br>
-    まずはLINEから、お気軽にご相談ください。</p>
-    <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約・相談する</a>
+  <!-- TREATMENT(3つの柱) -->
+  <section class="band band--green">
+    <div class="inner">
+      <h2 class="sec-head fade">
+        <span class="sec-num">content 03</span>
+        <span class="en">Treatment</span>
+        <span class="ja">ハダノコトサロンの3つの柱</span>
+      </h2>
+      <div class="pillars">
+        <div class="pillar fade">
+          <h3>バイオウォーミーパック（マツヤニパック）</h3>
+          <p>天然の松やにを使った、当サロンの看板メニュー。じんわり温めながら毛穴の汚れをオフし、つるんとした陶器のような肌ざわりへ。</p>
+          <a class="more" href="matsuyani.html">詳しく見る</a>
+        </div>
+        <div class="pillar fade">
+          <h3>ビオスチーム（発酵野草蒸し）</h3>
+          <p>よもぎ・モリンガなど12種類の野草に玄米麹・玄米酵母の発酵エキスを合わせた、座って浴びる蒸気の温活ケア。天尊の塩を配合したビオスチームを受けられるのは、全国でハダノコトサロンだけです（蔵元・CALSEED社確認済み／2026年）。</p>
+          <a class="more" href="menu.html">メニューへ</a>
+        </div>
+        <div class="pillar fade">
+          <h3>美肌脱毛</h3>
+          <p>痛みを抑えた脱毛機「ペガサスプロ」を使用。コースの契約はなく、都度払いで通いたいときに通えます。学割あり。</p>
+          <a class="more" href="menu.html">メニューへ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION(クロージング) -->
+  <section class="band band--white band--cta">
+    <div class="inner cta-block fade">
+      <div class="sprig sprig--pine" aria-hidden="true"></div>
+      <h2 class="sec-head">
+        <span class="sec-num">content 04</span>
+        <span class="en">Reservation</span>
+        <span class="ja">ご予約・ご相談</span>
+      </h2>
+      <p>JR御井駅から徒歩2分、久留米インターから車で3分。駐車場もございます。<br>
+      鳥栖・佐賀・日田方面からも通っていただいています。<br>
+      まずはLINEから、お気軽にご相談ください。</p>
+      <a class="btn btn-primary" href="https://lin.ee/RhbFOYM" target="_blank" rel="noopener">LINEで予約・相談する</a>
+    </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer wm">
   <div class="footer-inner">
     <img class="footer-logo" src="assets/img/hadanokologojpg.jpg" alt="">
     <p class="footer-name">ハダノコトサロン</p>
@@ -157,6 +190,7 @@
       <a href="https://note.com/hadanokoto" target="_blank" rel="noopener">note</a>
     </div>
     <p class="copyright">&copy; HADANOKOTO SALON</p>
+    <a class="page-top" href="#top">page top</a>
   </div>
 </footer>
 

@@ -1,20 +1,24 @@
 /* ============================================
-   ハダノコトサロン 公式サイト
+   ハダノコトサロン 公式サイト v2
    和モダン・静かで上質
    生成り × 墨色 × 深緑(少量)
+   参考:英語ラベル+日本語添え書きの見出し作法・
+   セクション帯背景・和紙質感・スクロール連動フェード
    ============================================ */
 
 :root {
   --bg: #F7F4EE;
+  --bg-white: #FFFFFF;
+  --bg-green: #EEF1EC;
   --bg-soft: #F1EDE3;
   --ink: #2B2B2B;
   --ink-soft: #55524C;
   --green: #4A5D4E;
   --green-dark: #3D4E41;
   --line: #DCD6C8;
-  --placeholder: #E9E6DE;
   --serif: "Shippori Mincho", "Noto Serif JP", serif;
   --sans: "Noto Sans JP", sans-serif;
+  --en-serif: "Cormorant Garamond", "Shippori Mincho", serif;
 }
 
 * {
@@ -38,6 +42,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* 和紙のようなごく薄いノイズテクスチャ(自作SVG) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -49,10 +64,11 @@ a {
   text-decoration: none;
 }
 
-/* ---------- ヘッダー ---------- */
+/* ---------- ヘッダー(細い固定ナビ) ---------- */
 
 .site-header {
-  background: var(--bg);
+  background: rgba(247, 244, 238, 0.92);
+  backdrop-filter: blur(4px);
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
@@ -60,36 +76,38 @@ a {
 }
 
 .header-inner {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--ink);
 }
 
 .brand img {
-  width: 64px;
+  width: 44px;
   height: auto;
 }
 
 /* 白背景のJPGロゴを生成り背景に馴染ませる */
 .brand img,
 .hero-logo,
-.footer-logo {
+.footer-logo,
+.ph img {
   mix-blend-mode: multiply;
 }
 
 .brand-name {
   font-family: var(--serif);
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   letter-spacing: 0.12em;
 }
 
@@ -112,6 +130,12 @@ a {
   transition: 0.3s;
 }
 
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
 .site-nav ul {
   list-style: none;
   display: flex;
@@ -119,18 +143,48 @@ a {
 }
 
 .site-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.4;
+  padding: 4px 0;
   color: var(--ink);
-  font-size: 0.86rem;
-  letter-spacing: 0.08em;
-  padding: 6px 0;
-  border-bottom: 1px solid transparent;
   transition: 0.25s;
 }
 
-.site-nav a:hover,
-.site-nav a[aria-current="page"] {
+.site-nav a .en {
+  font-family: var(--en-serif);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+}
+
+.site-nav a .ja {
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+
+.site-nav a:hover .en,
+.site-nav a[aria-current="page"] .en {
   color: var(--green);
-  border-bottom-color: var(--green);
+}
+
+.site-nav a[aria-current="page"] .ja {
+  color: var(--green);
+}
+
+.nav-copy {
+  font-family: var(--en-serif);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+@media (max-width: 860px) {
+  .nav-copy {
+    display: none;
+  }
 }
 
 @media (max-width: 760px) {
@@ -152,29 +206,49 @@ a {
   .site-nav ul {
     flex-direction: column;
     gap: 0;
-    padding: 8px 0 16px;
+    padding: 8px 0 12px;
   }
   .site-nav li {
     text-align: center;
   }
   .site-nav a {
+    padding: 11px 0;
+  }
+  .nav-copy {
     display: block;
-    padding: 13px 0;
-    border-bottom: none;
+    text-align: center;
+    padding: 0 0 16px;
   }
 }
 
-/* ---------- 本文レイアウト ---------- */
+/* ---------- 帯(セクション背景) ---------- */
 
-main {
+.band {
+  padding: 88px 24px;
+}
+
+.band--head {
+  padding: 72px 24px 56px;
+}
+
+.band--white {
+  background: var(--bg-white);
+}
+
+.band--green {
+  background: var(--bg-green);
+}
+
+.band--cta {
+  padding: 80px 24px 96px;
+}
+
+.inner {
   max-width: 720px;
   margin: 0 auto;
-  padding: 0 24px 96px;
 }
 
-section {
-  margin-top: 88px;
-}
+/* ---------- 見出しシステム(英語+日本語添え書き) ---------- */
 
 h1, h2, h3 {
   font-family: var(--serif);
@@ -183,15 +257,34 @@ h1, h2, h3 {
   letter-spacing: 0.08em;
 }
 
-h1 {
-  font-size: 1.55rem;
+.sec-head {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 }
 
-h2 {
-  font-size: 1.3rem;
-  margin-bottom: 28px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--line);
+.sec-num {
+  font-family: var(--en-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.32em;
+  color: var(--green);
+  margin-bottom: 14px;
+}
+
+.sec-head .en {
+  font-family: var(--en-serif);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 6vw, 2.4rem);
+  letter-spacing: 0.22em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.sec-head .ja {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  color: var(--green-dark);
+  margin-top: 10px;
 }
 
 h3 {
@@ -209,78 +302,155 @@ p + p {
   color: var(--ink-soft);
 }
 
+.catch {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 4.5vw, 1.5rem);
+  letter-spacing: 0.1em;
+  line-height: 2;
+  margin-bottom: 28px;
+}
+
 /* ---------- ファーストビュー ---------- */
 
 .hero {
+  min-height: calc(100svh - 62px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 72px 0 8px;
+  padding: 56px 24px 120px;
+  position: relative;
 }
 
 .hero-logo {
-  width: min(300px, 68%);
-  margin: 0 auto 44px;
+  width: min(260px, 62%);
+  margin: 0 auto 52px;
 }
 
 .hero-copy {
   font-family: var(--serif);
-  font-size: clamp(1.45rem, 5.5vw, 1.9rem);
-  letter-spacing: 0.1em;
+  font-size: clamp(1.5rem, 5.5vw, 2rem);
+  letter-spacing: 0.12em;
   line-height: 2;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
-.hero-sub {
-  font-size: 0.92rem;
+.hero-address {
+  font-family: var(--en-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.26em;
   color: var(--ink-soft);
-  line-height: 2.2;
+  text-transform: uppercase;
 }
 
-.hero-sub strong {
-  display: block;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1.15rem;
-  color: var(--ink);
-  letter-spacing: 0.14em;
-  margin-top: 6px;
-}
+/* scroll インジケーター */
 
-.hero-actions {
-  margin-top: 44px;
+.scroll-cue {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
-/* ---------- ボタン ---------- */
+.scroll-cue span {
+  font-family: var(--en-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.32em;
+  color: var(--ink-soft);
+}
+
+.scroll-cue i {
+  display: block;
+  width: 1px;
+  height: 54px;
+  background: var(--line);
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-cue i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--green);
+  animation: scrollcue 2.4s ease-in-out infinite;
+}
+
+@keyframes scrollcue {
+  0%   { transform: translateY(-100%); }
+  55%  { transform: translateY(100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ---------- スクロール連動フェードイン ---------- */
+
+.js .fade {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.js .fade.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .scroll-cue i::after {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---------- ボタン(ピル型・色が満ちるhover) ---------- */
 
 .btn {
   display: inline-block;
-  padding: 14px 34px;
+  padding: 15px 40px;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
   border: 1px solid var(--green);
-  transition: 0.25s;
+  border-radius: 999px;
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: left center;
+  transition: background-size 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
 .btn-primary {
-  background: var(--green);
+  background-color: var(--green);
+  background-image: linear-gradient(var(--green-dark), var(--green-dark));
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: var(--green-dark);
+  background-size: 100% 100%;
   border-color: var(--green-dark);
 }
 
 .btn-ghost {
   color: var(--green);
-  background: transparent;
+  background-color: transparent;
+  background-image: linear-gradient(var(--green), var(--green));
 }
 
 .btn-ghost:hover {
-  background: var(--green);
+  background-size: 100% 100%;
   color: #fff;
 }
 
@@ -299,9 +469,9 @@ p + p {
 }
 
 .pillar {
-  background: #fff;
-  border: 1px solid var(--line);
-  padding: 34px 30px;
+  background: var(--bg-white);
+  border: 1px solid #E7E3D8;
+  padding: 36px 32px;
 }
 
 .pillar h3 {
@@ -311,8 +481,9 @@ p + p {
 .pillar .more {
   display: inline-block;
   margin-top: 16px;
+  font-family: var(--en-serif);
   font-size: 0.86rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.14em;
   border-bottom: 1px solid var(--green);
   padding-bottom: 2px;
 }
@@ -320,19 +491,27 @@ p + p {
 /* ---------- 写真プレースホルダー ---------- */
 
 .ph {
-  background: var(--placeholder);
-  border: 1px solid var(--line);
+  background: var(--bg-green);
+  border: 1px solid #E2E0D4;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   aspect-ratio: 3 / 2;
   margin: 26px 0;
 }
 
+.ph img {
+  width: 58px;
+  opacity: 0.4;
+}
+
 .ph span {
-  font-size: 0.78rem;
-  letter-spacing: 0.2em;
-  color: #A09B90;
+  font-family: var(--en-serif);
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  color: #8B9388;
 }
 
 .ph-grid {
@@ -351,6 +530,50 @@ p + p {
   }
 }
 
+/* ---------- 写真ギャラリー(モザイク) ---------- */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.gallery .ph {
+  margin: 0;
+}
+
+.gallery .g1 {
+  grid-column: span 4;
+  aspect-ratio: 4 / 3;
+}
+
+.gallery .g2 {
+  grid-column: span 2;
+  aspect-ratio: auto;
+}
+
+.gallery .g3 {
+  grid-column: span 2;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery .g4 {
+  grid-column: span 4;
+  aspect-ratio: auto;
+}
+
+@media (max-width: 560px) {
+  .gallery {
+    gap: 10px;
+  }
+  .gallery .ph img {
+    width: 40px;
+  }
+  .gallery .ph span {
+    font-size: 0.58rem;
+  }
+}
+
 /* ---------- 料金表 ---------- */
 
 .price-table {
@@ -363,7 +586,7 @@ p + p {
 .price-table th,
 .price-table td {
   text-align: left;
-  padding: 13px 10px;
+  padding: 14px 10px;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
@@ -376,9 +599,12 @@ p + p {
   font-size: 0.85rem;
 }
 
-.price-table .price {
+.price-table .price,
+.price-list .price {
   white-space: nowrap;
-  font-family: var(--serif);
+  font-family: var(--en-serif);
+  font-size: 1.06rem;
+  letter-spacing: 0.04em;
 }
 
 .price-table .desc {
@@ -397,7 +623,7 @@ p + p {
     justify-content: space-between;
     align-items: baseline;
     gap: 0 16px;
-    padding: 14px 2px;
+    padding: 15px 2px;
     border-bottom: 1px solid var(--line);
   }
   .price-table th,
@@ -425,17 +651,13 @@ p + p {
 .price-list li {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 16px;
-  padding: 15px 4px;
+  padding: 16px 4px;
   border-bottom: 1px solid var(--line);
 }
 
-.price-list .price {
-  font-family: var(--serif);
-  white-space: nowrap;
-}
-
-/* ---------- 引用・こだわりリスト ---------- */
+/* ---------- こだわりリスト ---------- */
 
 .feature-list {
   list-style: none;
@@ -443,7 +665,7 @@ p + p {
 
 .feature-list li {
   position: relative;
-  padding: 10px 0 10px 26px;
+  padding: 11px 0 11px 26px;
   border-bottom: 1px dotted var(--line);
 }
 
@@ -458,25 +680,97 @@ p + p {
   border-radius: 50%;
 }
 
+/* ---------- SHOP情報(定義リスト型) ---------- */
+
+.shop-info {
+  border-top: 1px solid var(--line);
+  margin: 8px 0 30px;
+}
+
+.shop-info > div {
+  display: flex;
+  gap: 22px;
+  padding: 17px 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+.shop-info dt {
+  width: 92px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--green-dark);
+  padding-top: 2px;
+}
+
+.shop-info dd {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
 /* ---------- CTAブロック ---------- */
 
 .cta-block {
-  margin-top: 72px;
-  background: var(--bg-soft);
-  border: 1px solid var(--line);
-  padding: 44px 30px;
   text-align: center;
 }
 
 .cta-block p {
-  margin-bottom: 24px;
+  margin-bottom: 26px;
+}
+
+/* ---------- 植物の線画(自作SVG) ---------- */
+
+.sprig {
+  margin: 0 auto 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* よもぎの小枝(ページ見出し用) */
+.sprig--yomogi {
+  width: 48px;
+  height: 46px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 46' fill='none' stroke='%234A5D4E' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M24 44 C 25 31, 26 18, 28 3'/%3E%3Cpath d='M23.5 33 C 14 31, 9 24.5, 11 17.5 C 17.5 20.5, 21.5 26.5, 23.5 33 Z'/%3E%3Cpath d='M25.5 23 C 34 21, 39 15, 37 8.5 C 30.5 11, 26.5 16.5, 25.5 23 Z'/%3E%3Cpath d='M24.5 38 C 30 37, 33.5 33.5, 33 29 C 28.5 30.5, 25.5 34, 24.5 38 Z'/%3E%3C/svg%3E");
+}
+
+/* 松の枝(セクション区切り用) */
+.sprig--pine {
+  width: 150px;
+  height: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 150 44' fill='none' stroke='%232B2B2B' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M6 37 C 42 31, 96 25, 144 11'/%3E%3Cpath d='M30 32.5 L23 18'/%3E%3Cpath d='M30 32.5 L38 20'/%3E%3Cpath d='M58 28.5 L51 14'/%3E%3Cpath d='M58 28.5 L66 16'/%3E%3Cpath d='M88 23.5 L81 9'/%3E%3Cpath d='M88 23.5 L96 11'/%3E%3Cpath d='M116 18 L109 4'/%3E%3Cpath d='M116 18 L124 5.5'/%3E%3C/svg%3E");
+  opacity: 0.55;
+}
+
+/* ---------- ロゴの透かし ---------- */
+
+.wm {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.wm::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: -110px;
+  bottom: -50px;
+  width: 480px;
+  height: 350px;
+  background: url("../img/hadanokologojpg.jpg") center / contain no-repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.05;
+  pointer-events: none;
 }
 
 /* ---------- 地図 ---------- */
 
 .map-wrap {
-  margin: 30px 0;
+  margin: 10px 0 0;
   border: 1px solid var(--line);
+  background: var(--bg-white);
 }
 
 .map-wrap iframe {
@@ -491,8 +785,7 @@ p + p {
 .site-footer {
   background: var(--bg-soft);
   border-top: 1px solid var(--line);
-  margin-top: 40px;
-  padding: 56px 24px 110px;
+  padding: 64px 24px 110px;
   text-align: center;
 }
 
@@ -520,21 +813,23 @@ p + p {
 }
 
 .footer-line-btn {
-  margin: 28px auto 0;
+  margin: 30px auto 0;
   max-width: 320px;
 }
 
 .footer-sns {
-  margin-top: 26px;
+  margin-top: 28px;
   display: flex;
   justify-content: center;
-  gap: 28px;
-  font-size: 0.86rem;
+  gap: 30px;
 }
 
 .footer-sns a {
-  letter-spacing: 0.1em;
+  font-family: var(--en-serif);
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
   border-bottom: 1px solid transparent;
+  transition: 0.25s;
 }
 
 .footer-sns a:hover {
@@ -542,10 +837,33 @@ p + p {
 }
 
 .copyright {
-  margin-top: 36px;
-  font-size: 0.74rem;
+  margin-top: 38px;
+  font-family: var(--en-serif);
+  font-size: 0.76rem;
   color: #9A958A;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
+}
+
+/* page top */
+
+.page-top {
+  display: block;
+  text-align: right;
+  max-width: 960px;
+  margin: 34px auto 0;
+  font-family: var(--en-serif);
+  font-size: 0.76rem;
+  letter-spacing: 0.24em;
+  color: var(--ink-soft);
+  transition: color 0.25s;
+}
+
+.page-top::after {
+  content: " \2191";
+}
+
+.page-top:hover {
+  color: var(--green);
 }
 
 /* ---------- 固定LINEボタン ---------- */
@@ -561,8 +879,8 @@ p + p {
   letter-spacing: 0.08em;
   padding: 13px 22px;
   border-radius: 999px;
-  box-shadow: 0 3px 14px rgba(43, 43, 43, 0.22);
-  transition: 0.25s;
+  box-shadow: 0 2px 10px rgba(43, 43, 43, 0.14);
+  transition: background 0.4s;
 }
 
 .line-fixed:hover {
