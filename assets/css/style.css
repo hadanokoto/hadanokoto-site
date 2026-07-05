@@ -255,16 +255,23 @@ h1, h2, h3 {
   margin-bottom: 52px;
 }
 
-/* content番号は縦書きでセクション左肩に */
+/* content番号は縦書きでセクション左肩(本文外側の余白)に */
 .sec-num {
   position: absolute;
-  left: 0;
+  left: -18px;
   top: 0.2em;
   writing-mode: vertical-rl;
   font-family: var(--en-serif);
   font-size: 0.72rem;
   letter-spacing: 0.3em;
   color: var(--accent);
+}
+
+/* 見出しと重なる幅では非表示 */
+@media (max-width: 480px) {
+  .sec-num {
+    display: none;
+  }
 }
 
 .sec-head .en {
@@ -557,15 +564,14 @@ p + p {
   transform: scale(1.04);
 }
 
-/* 半透明の暗めグラデーション */
+/* 写真が見える薄めの縦グラデーション(上0.15→下0.55) */
 .pillar-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-    rgba(25, 23, 19, 0.68) 0%,
-    rgba(25, 23, 19, 0.28) 45%,
-    rgba(25, 23, 19, 0.06) 100%);
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.55) 100%);
 }
 
 .pillar-num {
@@ -806,17 +812,19 @@ p + p {
 .cta-band > img {
   position: absolute;
   inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* 墨色30%オーバーレイ */
+/* 墨色45%オーバーレイ(写真より上・文字より下) */
 .cta-band::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(43, 43, 43, 0.3);
+  z-index: 1;
+  background: rgba(43, 43, 43, 0.45);
 }
 
 .cta-inner {
@@ -831,13 +839,13 @@ p + p {
   text-align: center;
   padding: 24px;
   color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
 }
 
 .cta-title {
   font-family: var(--serif);
   font-size: clamp(1.05rem, 3.6vw, 1.3rem);
   letter-spacing: 0.25em;
-  text-shadow: 0 1px 12px rgba(20, 18, 14, 0.4);
 }
 
 .cta-note {
@@ -892,14 +900,21 @@ p + p {
   content: "";
   position: absolute;
   z-index: -1;
-  right: -110px;
-  bottom: -50px;
-  width: 480px;
-  height: 350px;
+  right: -120px;
+  bottom: -60px;
+  width: 380px;
+  height: 280px;
   background: url("../img/hadanokologojpg.jpg") center / contain no-repeat;
   mix-blend-mode: multiply;
-  opacity: 0.05;
+  opacity: 0.04;
   pointer-events: none;
+}
+
+/* テキストブロック(中央720px)と重なる幅では非表示 */
+@media (max-width: 1240px) {
+  .wm::before {
+    content: none;
+  }
 }
 
 /* ---------- 地図 ---------- */
