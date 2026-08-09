@@ -220,12 +220,13 @@ a {
 
 /* ---------- セクション(背景は全ページ均一の生成り。区切りは余白で) ---------- */
 
+/* 上下非対称にし、隣接セクション間の二重余白(旧:96+96=192px)を解消 */
 .band {
-  padding: 96px 24px;
+  padding: 72px 24px 40px;
 }
 
 .band--head {
-  padding: 72px 24px 56px;
+  padding: 72px 24px 40px;
 }
 
 .inner {
@@ -920,11 +921,25 @@ p + p {
 /* ---------- 地図 ---------- */
 
 .map-wrap {
+  position: relative;
   margin: 10px 0 0;
   border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
+}
+
+/* Googleマップ埋め込みが左上に出す「マップで開く」チップを覆い隠す
+   (クロスオリジンiframeのため直接非表示にできない。同機能はshop-infoの
+   「Google mapを見る」リンクで代替提供済み) */
+.map-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 48px;
+  background: #fff;
+  border-bottom-right-radius: 10px;
 }
 
 .map-wrap iframe {
