@@ -275,23 +275,14 @@ h1, h2, h3 {
   }
 }
 
-.sec-head .en {
-  font-family: var(--en-serif);
-  font-weight: 500;
-  font-size: clamp(2.4rem, 8vw, 3.4rem);
-  letter-spacing: 0.12em;
-  line-height: 1.15;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
+/* 日本語見出しを主見出しとして使用(英語見出し+添え書き型は廃止) */
 .sec-head .ja {
   font-family: var(--serif);
-  font-size: 1.05rem;
+  font-size: clamp(1.6rem, 5.5vw, 2.1rem);
   font-weight: 600;
+  line-height: 1.6;
   letter-spacing: 0.25em;
   color: var(--ink);
-  margin-top: 12px;
 }
 
 /* 見出し直下の短い水平線(金茶・幅24px) */
