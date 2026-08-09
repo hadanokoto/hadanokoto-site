@@ -921,25 +921,11 @@ p + p {
 /* ---------- 地図 ---------- */
 
 .map-wrap {
-  position: relative;
   margin: 10px 0 0;
   border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
-}
-
-/* Googleマップ埋め込みが左上に出す「マップで開く」チップを覆い隠す
-   (クロスオリジンiframeのため直接非表示にできない。同機能はshop-infoの
-   「Google mapを見る」リンクで代替提供済み) */
-.map-mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 48px;
-  background: #fff;
-  border-bottom-right-radius: 10px;
 }
 
 .map-wrap iframe {
