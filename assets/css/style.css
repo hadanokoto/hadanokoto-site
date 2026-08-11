@@ -570,6 +570,7 @@ p + p {
 
 .pillar-title {
   display: block;
+  min-height: 3.6rem;
   font-family: var(--serif);
   font-size: 1.06rem;
   font-weight: 600;
@@ -579,8 +580,15 @@ p + p {
   margin-bottom: 8px;
 }
 
+/* 「（バイオウォーミーパック）」等の補足表記。一回り小さく・単語途中で改行しない */
+.pillar-title-sub {
+  font-size: 0.6em;
+  white-space: nowrap;
+}
+
 .pillar-sub {
   display: block;
+  min-height: 2.75rem;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.88);
