@@ -705,6 +705,11 @@ p + p {
   font-weight: 700;
 }
 
+/* 料金リストが連続する場合(WOMEN/MEN等)の見出し間隔 */
+.price-list + h3 {
+  margin-top: 40px;
+}
+
 /* ---------- こだわりリスト ---------- */
 
 .feature-list {
