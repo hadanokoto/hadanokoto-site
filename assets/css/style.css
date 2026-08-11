@@ -88,6 +88,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
   color: var(--ink);
 }
 
@@ -136,41 +137,33 @@ a {
 .site-nav ul {
   list-style: none;
   display: flex;
-  gap: 26px;
+  gap: 28px;
 }
 
 .site-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.4;
+  display: block;
   padding: 4px 0;
   color: var(--ink);
   transition: 0.25s;
 }
 
-.site-nav a .en {
-  font-family: var(--en-serif);
-  font-size: 0.9rem;
-  letter-spacing: 0.18em;
-}
-
+/* 日本語のみのナビ表記(主見出しとして機能する大きさ) */
 .site-nav a .ja {
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 
-.site-nav a:hover .en,
-.site-nav a[aria-current="page"] .en {
-  color: var(--accent-dark);
-}
-
+.site-nav a:hover .ja,
 .site-nav a[aria-current="page"] .ja {
   color: var(--accent-dark);
 }
 
+/* ヘッダー行には収まらないため既定では非表示。ハンバーガーメニュー内でのみ表示 */
 .nav-copy {
+  display: none;
   font-family: var(--en-serif);
   font-size: 0.68rem;
   letter-spacing: 0.16em;
@@ -178,13 +171,8 @@ a {
   white-space: nowrap;
 }
 
-@media (max-width: 860px) {
-  .nav-copy {
-    display: none;
-  }
-}
-
-@media (max-width: 760px) {
+/* 7項目のナビが1行に収まる最小幅(実測912px)を下回ったらハンバーガーメニューに切替 */
+@media (max-width: 1000px) {
   .nav-toggle {
     display: block;
   }
