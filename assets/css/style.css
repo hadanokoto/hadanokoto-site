@@ -171,8 +171,8 @@ a {
   white-space: nowrap;
 }
 
-/* 7項目のナビが1行に収まる最小幅(実測912px)を下回ったらハンバーガーメニューに切替 */
-@media (max-width: 1000px) {
+/* 7項目のナビが1行に収まる最小幅(実測1000px)を下回ったらハンバーガーメニューに切替 */
+@media (max-width: 1060px) {
   .nav-toggle {
     display: block;
   }
