@@ -582,7 +582,7 @@ p + p {
 
 /* 「（バイオウォーミーパック）」等の補足表記。一回り小さく・単語途中で改行しない */
 .pillar-title-sub {
-  font-size: 0.6em;
+  font-size: 0.8em;
   white-space: nowrap;
 }
 
