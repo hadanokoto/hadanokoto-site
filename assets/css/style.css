@@ -966,15 +966,15 @@ p + p {
   color: var(--ink-soft);
 }
 
-/* 英語住所(金茶・小さく) */
+/* 住所(金茶・小さく) */
 .footer-address {
-  font-family: var(--en-serif);
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
+  min-width: 0;
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
   line-height: 2.1;
   color: var(--accent);
   text-align: right;
-  text-transform: uppercase;
 }
 
 /* 円形の上向き矢印(page top・金茶細線) */
