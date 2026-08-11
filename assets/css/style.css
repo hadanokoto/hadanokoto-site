@@ -580,10 +580,25 @@ p + p {
   margin-bottom: 8px;
 }
 
-/* 「（バイオウォーミーパック）」等の補足表記。一回り小さく・単語途中で改行しない */
+/* 「（バイオウォーミーパック）」等の補足表記。一回り小さく・単語途中で改行しない。
+   カード内側幅は.pillarsが3カラム(>760px)か1カラム(<=760px)かで非単調に変化するため
+   (3カラム時は960px上限に達するまで狭いほど窮屈)、幅ごとに実測した安全な最大値を
+   ブレークポイントごとに指定する(実測値は各コミットのCSSコメント・報告を参照)。 */
 .pillar-title-sub {
-  font-size: 0.8em;
+  font-size: 17.5px; /* >=1008px: 3カラム・960px上限到達。カード内側幅約265px */
   white-space: nowrap;
+}
+
+@media (max-width: 1007px) {
+  .pillar-title-sub {
+    font-size: 11.2px; /* 761〜1007px: 3カラムで最も窮屈。761pxでカード内側幅約183px */
+  }
+}
+
+@media (max-width: 760px) {
+  .pillar-title-sub {
+    font-size: 19.5px; /* <=760px: 1カラムに切替りカード幅が広がる。380pxで内側幅約292px */
+  }
 }
 
 .pillar-sub {
