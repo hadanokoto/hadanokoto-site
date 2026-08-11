@@ -404,16 +404,6 @@ p + p {
   padding-top: 8vh;
 }
 
-.hero-address {
-  font-family: var(--en-serif);
-  font-size: 0.72rem;
-  letter-spacing: 0.2em;
-  line-height: 2;
-  color: #fff;
-  text-transform: uppercase;
-  text-shadow: 0 1px 10px rgba(20, 18, 14, 0.4);
-}
-
 /* 円形の下向き矢印(金茶の細線・ゆっくり上下) */
 .hero-arrow {
   position: absolute;
