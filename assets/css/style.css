@@ -90,6 +90,11 @@ a {
   gap: 10px;
   flex-shrink: 0;
   color: var(--ink);
+  transition: opacity 0.25s;
+}
+
+.brand:hover {
+  opacity: 0.7;
 }
 
 .brand img {
@@ -341,16 +346,19 @@ p + p {
   object-fit: cover;
 }
 
-/* 写真上部に生成りの余白をつくり、ロゴを置く */
+/* 写真上部に生成りの余白をつくり、ロゴを置く。あわせて白いヴェールをカード全面に重ねる
+   (このカードは::before/::afterを両方使い切っているため、::beforeに複数背景レイヤーとして
+   白ヴェールを統合する。1層目=既存のクリーム色グラデーション、2層目=全面の白ヴェール) */
 .hero-card::before {
   content: "";
   position: absolute;
-  inset: 0 0 auto 0;
-  height: 46%;
-  background: linear-gradient(to bottom,
-    rgba(247, 244, 238, 0.97) 0%,
-    rgba(247, 244, 238, 0.88) 42%,
-    rgba(247, 244, 238, 0) 100%);
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(247, 244, 238, 0.97) 0%,
+      rgba(247, 244, 238, 0.88) 42%,
+      rgba(247, 244, 238, 0) 100%),
+    rgba(255, 255, 255, 0.18);
   pointer-events: none;
 }
 
@@ -827,13 +835,18 @@ p + p {
   object-fit: cover;
 }
 
-/* 墨色45%オーバーレイ(写真より上・文字より下) */
+/* 墨色45%オーバーレイ(写真より上・文字より下)。白ヴェールを墨色の下に重ねる
+   (1層目=墨色45%が最前面で可読性を確保、2層目=白ヴェールが写真側。
+   単純な2色指定はbackground-colorは最終レイヤーにしか指定できないため、
+   1層目はグラデーション記法で単色を表現している) */
 .cta-band::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(43, 43, 43, 0.45);
+  background:
+    linear-gradient(rgba(43, 43, 43, 0.45), rgba(43, 43, 43, 0.45)),
+    rgba(255, 255, 255, 0.18);
 }
 
 .cta-inner {
