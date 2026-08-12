@@ -468,6 +468,18 @@ p + p {
   object-fit: cover;
 }
 
+/* 白いヴェール(全体18%)を写真全面に重ね、サイトの淡いトーンに馴染ませる */
+.photo--veil {
+  position: relative;
+}
+
+.photo--veil::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.18);
+}
+
 .photo--wide img {
   aspect-ratio: 16 / 9;
 }
@@ -592,7 +604,7 @@ p + p {
    実測した安全上限(約11.7px)より0.65emの実寸(約11.0px)が下回ることを
    確認済みで、この1本の値が全画面幅で安全に収まる。 */
 .pillar-title-sub {
-  font-size: 0.65em;
+  font-size: 0.8em;
   white-space: nowrap;
 }
 
