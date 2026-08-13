@@ -346,19 +346,12 @@ p + p {
   object-fit: cover;
 }
 
-/* 写真上部に生成りの余白をつくり、ロゴを置く。あわせて白いヴェールをカード全面に重ねる
-   (このカードは::before/::afterを両方使い切っているため、::beforeに複数背景レイヤーとして
-   白ヴェールを統合する。1層目=既存のクリーム色グラデーション、2層目=全面の白ヴェール) */
+/* 写真全面に白いヴェールを均一に重ね、サイトの淡いトーンに馴染ませる */
 .hero-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(to bottom,
-      rgba(247, 244, 238, 0.97) 0%,
-      rgba(247, 244, 238, 0.88) 42%,
-      rgba(247, 244, 238, 0) 100%),
-    rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
   pointer-events: none;
 }
 
@@ -875,6 +868,13 @@ p + p {
   font-family: var(--serif);
   font-size: clamp(1.05rem, 3.6vw, 1.3rem);
   letter-spacing: 0.25em;
+  line-height: 1.7;
+}
+
+.cta-title-sub {
+  display: block;
+  font-size: 0.62em;
+  letter-spacing: 0.14em;
 }
 
 .cta-note {
