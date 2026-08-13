@@ -12,8 +12,8 @@
   --ink-soft: #55524C;
   --accent: #A6803C;
   --accent-dark: #8C6B30;
-  --line-green: #2E7D4F;      /* LINE関連ボタンのみ(ブランド色) */
-  --line-green-dark: #256B42;
+  --line-green: #06C755;      /* LINE公式ブランドカラー */
+  --line-green-dark: #05A94A;
   --line: #DCD6C8;
   --serif: "Shippori Mincho", "Noto Serif JP", serif;
   --sans: "Noto Sans JP", sans-serif;
@@ -358,7 +358,7 @@ p + p {
       rgba(247, 244, 238, 0.97) 0%,
       rgba(247, 244, 238, 0.88) 42%,
       rgba(247, 244, 238, 0) 100%),
-    rgba(255, 255, 255, 0.18);
+    rgba(255, 255, 255, 0.08);
   pointer-events: none;
 }
 
@@ -385,7 +385,7 @@ p + p {
 }
 
 .hero-logo {
-  width: min(230px, 56%);
+  width: min(270px, 66%);
   mix-blend-mode: multiply;
 }
 
@@ -723,6 +723,13 @@ p + p {
 
 .price-list li > span:first-child {
   font-weight: 700;
+}
+
+/* 料金リストの項目名に添える部位詳細等の小さな補足 */
+.price-list .parts-detail {
+  font-weight: 400;
+  font-size: 0.76rem;
+  color: var(--ink-soft);
 }
 
 /* 料金リストが連続する場合(WOMEN/MEN等)の見出し間隔 */
