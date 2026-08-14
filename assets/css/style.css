@@ -204,6 +204,9 @@ a {
   .site-nav a {
     padding: 11px 0;
   }
+  .site-nav a .ja {
+    font-weight: 600;
+  }
   .nav-copy {
     display: block;
     text-align: center;
@@ -889,7 +892,7 @@ p + p {
 
 .cta-title-sub {
   display: block;
-  font-size: 0.62em;
+  font-size: 0.8em;
   letter-spacing: 0.14em;
 }
 
