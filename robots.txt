@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hadanokoto.github.io/hadanokoto-site/sitemap.xml
+Sitemap: https://hadanokoto.com/sitemap.xml
