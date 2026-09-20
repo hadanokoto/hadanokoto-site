@@ -292,6 +292,7 @@ h1, h2, h3 {
   line-height: 1.6;
   letter-spacing: 0.25em;
   color: var(--ink);
+  max-width: calc(100% - 100px);
 }
 
 /* 見出し直下の短い水平線(金茶・幅24px) */
