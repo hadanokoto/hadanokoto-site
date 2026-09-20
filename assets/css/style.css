@@ -292,7 +292,14 @@ h1, h2, h3 {
   line-height: 1.6;
   letter-spacing: 0.25em;
   color: var(--ink);
-  max-width: calc(100% - 100px);
+  max-width: calc(100% - 84px);
+}
+
+/* 見出し中の改行指定は、狭い幅では孤立文字を防ぐため無効化して自然な折り返しに委ねる */
+@media (max-width: 480px) {
+  .sec-head .ja br {
+    display: none;
+  }
 }
 
 /* 見出し直下の短い水平線(金茶・幅24px) */
