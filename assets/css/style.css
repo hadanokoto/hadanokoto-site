@@ -300,6 +300,9 @@ h1, h2, h3 {
   .sec-head .ja br {
     display: none;
   }
+  .sec-head .ja {
+    max-width: 100%;
+  }
 }
 
 /* 見出し直下の短い水平線(金茶・幅24px) */
