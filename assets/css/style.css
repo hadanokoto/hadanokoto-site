@@ -146,6 +146,14 @@ a {
   transition: 0.3s;
 }
 
+.nav-toggle-label {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -192,7 +200,18 @@ a {
 /* 7項目のナビが1行に収まる最小幅(実測1000px)を下回ったらハンバーガーメニューに切替 */
 @media (max-width: 1060px) {
   .nav-toggle {
-    display: block;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(3, auto);
+    align-items: center;
+    column-gap: 6px;
+  }
+  .nav-toggle span {
+    grid-column: 1;
+  }
+  .nav-toggle-label {
+    grid-column: 2;
+    grid-row: 1 / -1;
   }
   .site-nav {
     display: none;
