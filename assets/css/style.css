@@ -76,6 +76,13 @@ a {
   text-decoration: none;
 }
 
+.inner p a,
+.inner .note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 /* ---------- ヘッダー(細い固定ナビ) ---------- */
 
 .site-header {
