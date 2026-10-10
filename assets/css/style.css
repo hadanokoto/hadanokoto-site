@@ -1249,3 +1249,30 @@ p + p {
 .line-fixed:hover {
   background: var(--line-green-dark);
 }
+
+/* ---------- 2026/10 物販ページ見直しで追加 ---------- */
+
+/* ページ内リンク(#myufull等)で飛んだとき、固定ヘッダーに見出しが隠れないようにする */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* トップの3つの柱の下に置く、物販ページへの一行リンク */
+.pillars-more {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* 本文・リスト・写真のすぐ後に来る小見出し(h3)の上に余白をとる */
+p + h3,
+.feature-list + h3,
+.photo + h3 {
+  margin-top: 40px;
+}
+
+/* 見出し帯で、詩組み(.poem)のあとに続く説明文 */
+.poem + p {
+  margin-top: 32px;
+}
