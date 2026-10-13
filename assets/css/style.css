@@ -1276,3 +1276,14 @@ p + h3,
 .poem + p {
   margin-top: 32px;
 }
+
+/* ページ名の見出し（h1）の補足部分。常に改行し、スマホでは小さめにして単語の途中で折り返さないようにする */
+.sec-head .ja .h1-sub { display: block; }
+@media (max-width: 480px) {
+  .sec-head .ja .h1-sub { font-size: 0.62em; letter-spacing: 0.12em; }
+}
+
+/* トップの一行案内：2行目の余白と、リンクが単語の途中で折り返さないようにする */
+.pillars-more + .pillars-more { margin-top: 12px; }
+.pillars-more a { display: inline-block; }
+.pillars-more a span { display: inline-block; text-decoration: inherit; }
