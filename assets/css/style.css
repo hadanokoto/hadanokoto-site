@@ -1287,3 +1287,17 @@ p + h3,
 .pillars-more + .pillars-more { margin-top: 12px; }
 .pillars-more a { display: inline-block; }
 .pillars-more a span { display: inline-block; text-decoration: inherit; }
+
+/* ---------- 2026/11 マツビオセット追加・スマホの見やすさ調整で追加 ---------- */
+
+/* 言葉のまとまりを途中で折り返さないための目印（料金表・キャッチ・トップの一行案内で使用） */
+.nw { display: inline-block; }
+
+/* 幅の狭いスマホ（400px以下）では、見出しとキャッチの字間を少し詰め、最後の1文字だけが次の行に落ちるのを防ぐ */
+@media (max-width: 400px) {
+  .sec-head .ja { letter-spacing: 0.15em; }
+  .catch { letter-spacing: 0.12em; }
+}
+
+/* ハンバーガーメニューのラベル「メニュー」を途中で折り返さない */
+.nav-toggle-label { white-space: nowrap; }
