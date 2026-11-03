@@ -824,11 +824,6 @@ p + p {
 
 /* ---------- よくあるご質問(折りたたみ) ---------- */
 
-.faq-lead {
-  margin-bottom: 22px;
-  color: var(--ink-soft);
-}
-
 .faq-item {
   border-bottom: 1px dotted var(--line);
 }
