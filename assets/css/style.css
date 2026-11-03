@@ -1411,6 +1411,9 @@ h3 {
 .faq-item > summary {
   letter-spacing: 0.04em;
   font-weight: 500;
+  font-size: 0.92rem;
+  text-wrap: pretty;
+  word-break: auto-phrase; /* 日本語を文節で折り返す（Chrome・Edge・Android。未対応のブラウザでは無視される） */
 }
 
 .price-list .price {
@@ -1573,7 +1576,7 @@ h3 {
   background: #fff;
   color: var(--ink);
   text-shadow: none;
-  max-width: 250px;
+  max-width: min(310px, calc(100% - 24px));
   margin: 0;
   padding: 18px 18px 16px;
   gap: 10px;
