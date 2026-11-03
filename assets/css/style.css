@@ -1181,7 +1181,7 @@ p + p {
 }
 
 .page-top:hover {
-  background: rgba(166, 128, 60, 0.1);
+  background: rgba(34, 34, 34, 0.06);
 }
 
 /* SNSアイコン(横一列・中央揃え・©の上) */
@@ -1301,3 +1301,339 @@ p + h3,
 
 /* ハンバーガーメニューのラベル「メニュー」を途中で折り返さない */
 .nav-toggle-label { white-space: nowrap; }
+
+/* ============================================
+   v5（2026-11 ぱきっと化）— 決定事項（続き）§78
+   白地 × 墨 × ゴシック／写真は角なし・もやなし／
+   文字は写真の外か白い札の上／字間を詰める／余白を一定に
+   ※このブロックはファイルの一番最後に置く（前の指定を上書きするため）
+   ============================================ */
+
+:root {
+  --bg: #FFFFFF;
+  --ink: #222222;
+  --ink-soft: #5A5A5A;
+  --accent: #222222;
+  --accent-dark: #222222;
+  --line: #E3E3E3;
+  --serif: "Noto Sans JP", sans-serif;
+  --en-serif: "Noto Sans JP", sans-serif;
+  --mincho: "Shippori Mincho", "Noto Serif JP", serif;
+}
+
+body {
+  letter-spacing: 0.04em;
+  line-height: 1.85;
+}
+
+/* 和紙風のざらざら模様をやめる */
+body::after {
+  display: none;
+}
+
+/* ---------- ヘッダー・フッター ---------- */
+
+.site-header {
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.brand-name,
+.site-nav a .ja {
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+}
+
+.footer-name {
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.footer-address {
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+.copyright {
+  letter-spacing: 0.06em;
+}
+
+/* ---------- 見出し・本文の書体と字間 ---------- */
+
+h1, h2, h3 {
+  letter-spacing: 0.04em;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+.sec-head {
+  margin-bottom: 28px;
+}
+
+.sec-head .ja {
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.sec-head::after {
+  width: 28px;
+  height: 2px;
+  background: var(--ink);
+  margin-top: 16px;
+}
+
+/* 縦書きの「content 01」などの飾りは出さない */
+.sec-num {
+  display: none;
+}
+
+.catch {
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.poem {
+  line-height: 2.05;
+}
+
+/* 長い文章は左揃え（index「サロンの思い」・about「オーナーより」） */
+.poem--left {
+  text-align: left;
+  line-height: 2;
+}
+
+.faq-item > summary {
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.price-list .price {
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.shop-info dt,
+.shop-info > div > *:first-child {
+  letter-spacing: 0.04em;
+}
+
+/* ---------- 写真：角なし・もやなし ---------- */
+
+.hero-card,
+.photo,
+.photo img,
+.pillar-card,
+.map-wrap,
+.map-wrap iframe {
+  border-radius: 0;
+}
+
+.photo--veil::after {
+  display: none;
+}
+
+/* ---------- トップの写真（ヒーロー） ---------- */
+
+.hero {
+  padding-bottom: 16px;
+}
+
+.hero-card::before,
+.hero-card::after {
+  display: none;
+}
+
+/* スマホは縦4：横5、PCは横3：縦2 */
+.hero-photo {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+}
+
+.hero-inner {
+  padding: 22px 0 0;
+  align-items: flex-start;
+}
+
+.hero-logo {
+  align-self: center;
+  width: 68%;
+  max-width: 380px;
+}
+
+/* キャッチは写真の左下にぴったり付けた白い札（明朝のまま） */
+.hero-copy {
+  font-family: var(--mincho);
+  font-weight: 500;
+  font-size: clamp(1rem, 4.2vw, 1.3rem);
+  letter-spacing: 0.2em;
+  line-height: 1.9;
+  color: var(--ink);
+  text-shadow: none;
+  background: #fff;
+  margin: auto 0 0;
+  padding: 12px 18px 10px;
+  text-align: left;
+}
+
+/* 下向き矢印は出さない */
+.hero-arrow {
+  display: none;
+}
+
+@media (min-width: 761px) {
+  .hero-photo {
+    aspect-ratio: 3 / 2;
+  }
+  .hero-logo {
+    width: min(320px, 44%);
+  }
+}
+
+/* ---------- トップ「肌を育てる」の3つの柱：写真の下に文字 ---------- */
+
+.pillars {
+  gap: 28px;
+}
+
+.pillar-card {
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.pillar-card img {
+  position: static;
+  height: auto;
+  aspect-ratio: 3 / 2;
+}
+
+.pillar-card::after,
+.pillar-num {
+  display: none;
+}
+
+.pillar-body {
+  position: static;
+  text-align: left;
+  padding: 14px 2px 18px;
+}
+
+.pillar-title {
+  color: var(--ink);
+  min-height: 0;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.pillar-sub {
+  color: var(--ink-soft);
+  min-height: 0;
+  letter-spacing: 0.03em;
+  font-size: 0.72rem;
+}
+
+@media (max-width: 760px) {
+  .pillar-card {
+    aspect-ratio: auto;
+  }
+}
+
+.pillars-more {
+  letter-spacing: 0.04em;
+}
+
+/* ---------- 予約の帯：店内の写真（もやなし）＋左下の小さな白い札 ---------- */
+
+.cta-band {
+  height: auto;
+  padding: 150px 0 0;
+  margin-top: 32px;
+}
+
+.cta-band::before {
+  display: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  color: var(--ink);
+  text-shadow: none;
+  max-width: 250px;
+  margin: 0;
+  padding: 18px 18px 16px;
+  gap: 10px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cta-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  font-weight: 700;
+}
+
+.cta-note {
+  font-size: 0.6rem;
+  color: var(--ink-soft);
+}
+
+.btn-outline {
+  border-radius: 2px;
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 9px 22px;
+  font-size: 0.78rem;
+}
+
+@media (min-width: 761px) {
+  .cta-band {
+    padding-top: 220px;
+  }
+  .cta-inner {
+    max-width: 320px;
+    margin-left: max(24px, calc(50% - 480px));
+  }
+}
+
+/* 画面に固定のLINEボタン（色はLINEの緑のまま） */
+.line-fixed {
+  border-radius: 4px;
+}
+
+/* ---------- 余白：段と段の間を一定に ---------- */
+
+.band {
+  padding-top: 56px;
+  padding-bottom: 24px;
+}
+
+.band--head {
+  padding-bottom: 0;
+}
+
+.band--head + .band {
+  padding-top: 40px;
+}
+
+.inner > .photo:last-child {
+  margin-bottom: 0;
+}
