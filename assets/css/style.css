@@ -1640,3 +1640,20 @@ h3 {
 .inner > .photo:last-child {
   margin-bottom: 0;
 }
+
+/* 本文中のリンク：太字＋少し太い下線（色は墨のまま） */
+.inner p a,
+.inner .note a {
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* 予約の札は文字の幅に合わせる（最大幅の指定はそのまま） */
+.cta-inner {
+  width: fit-content;
+}
+
+.brand img {
+  width: 56px;
+}
